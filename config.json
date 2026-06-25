@@ -1,0 +1,195 @@
+{
+  "version": "3.0",
+  "target_market": "UK",
+  "platform": "Amazon",
+  "price_range": {
+    "min": 5.99,
+    "max": 10.0,
+    "tiers": {
+      "impulse": {"min": 5.99, "max": 7.99, "target_margin": 0.25, "label": "冲动消费区"},
+      "sweet":   {"min": 7.99, "max": 9.99, "target_margin": 0.30, "label": "甜蜜区间"},
+      "premium": {"min": 9.99, "max": 12.99, "target_margin": 0.35, "label": "溢价区间"}
+    }
+  },
+  "profit": {
+    "min_margin_by_price": {
+      "5.99-7.99": 0.25,
+      "7.99-9.99": 0.22,
+      "9.99-12.99": 0.20
+    },
+    "default_min_margin": 0.22
+  },
+  "max_weight_g": 300,
+  "max_length_cm": 32,
+  "preferred_weight_g": 100,
+  "preferred_thickness_cm": 2.5,
+  "exchange_rate_cny_gbp": 7.3,
+  "cost_structure": {
+    "vat_rate": 0.167,
+    "commission_rate": 0.15,
+    "commission_home": 0.08,
+    "commission_pets": 0.05,
+    "ad_rate": 0.05,
+    "return_rate": 0.02,
+    "fba_small_standard": 1.46,
+    "fba_large_standard": 2.46,
+    "sourcing_cost": 0.8
+  },
+  "forbidden_categories": [
+    "children", "toys", "baby", "infant",
+    "cosmetics", "skincare", "beauty_tools",
+    "food", "medicine", "supplements", "health",
+    "clothing", "shoes", "apparel", "fashion",
+    "furniture", "large_items",
+    "electronics", "battery", "electrical", "powered",
+    "petroleum", "aerosol", "flammable",
+    "weapons", "knives",
+    "liquids",
+    "pet_food",
+    "cbd", "vape", "alcohol", "tobacco",
+    "pharmaceutical", "medical_device", "ppe"
+  ],
+  "forbidden_keywords": [
+    "toy", "kids", "children", "baby", "infant",
+    "action figure", "figurine", "collectible", "plush", "doll",
+    "makeup", "lipstick", "lotion", "serum",
+    "snack", "vitamin", "supplement", "pill",
+    "pet food", "dog food", "cat food", "pet treat", "dog treat", "cat treat", "cat litter",
+    "dress", "shirt", "shoes", "trousers", "clothing",
+    "lithium", "battery", "charger", "adapter", "electronic", "rechargeable",
+    "usb powered", "battery operated", "plug in", "electric", "mains powered",
+    "motor", "ceiling fan", "desk fan", "tower fan", "stand fan", "pedestal fan",
+    "neck fan", "handheld fan", "portable fan", "clip fan",
+    "smart watch", "smart band", "fitness tracker", "smartwatch",
+    "wardrobe", "beauty buys", "skincare", "hair care",
+    "emulsion", "varnish", "aerosol",
+    "inflatable", "air bed", "airbed", "mattress",
+    "liquid", "fluid", "grease", "litre", "litres", "liter", "liters",
+    "polish", "wax", "bleach", "detergent",
+    "shampoo", "conditioner", "body wash", "hand soap", "mouthwash",
+    "toner", "moisturiser", "sunscreen", "sun cream",
+    "cleaning fluid", "washing liquid", "fabric softener",
+    "essential oil", "massage oil", "baby oil",
+    "glue", "resin", "epoxy",
+    "drink", "beverage", "juice", "perfume", "spray paint",
+    "tooth paste", "scratch remover", "trim restorer",
+    "drinking glass", "glass cup", "seat", "buckle", "belt", "bulb",
+    "cbd", "vape", "e-cigarette", "e-liquid",
+    "alcohol", "wine", "beer", "spirit",
+    "tobacco", "cigarette", "nicotine",
+    "pharmaceutical", "prescription",
+    "medical device", "ppe", "n95", "surgical",
+    "hazmat", "corrosive", "toxic",
+    "replica", "fake", "counterfeit"
+  ],
+  "forbidden_brands": [
+    "apple", "samsung", "sony", "bose", "jbl",
+    "dyson", "philips", "braun", "oral-b",
+    "nike", "adidas", "puma",
+    "lego", "playmobil",
+    "duracell", "energizer",
+    "gillette", "schick",
+    "coca-cola", "pepsi", "nestle"
+  ],
+  "brand_exemptions": [
+    "case", "cover", "charger", "cable", "holder", "protector",
+    "stand", "mount", "dock", "sleeve", "pouch", "strap", "band",
+    "compatible", "for", "fits", "replacement", "alternative"
+  ],
+  "reviews": {
+    "min": 3,
+    "min_new_releases": 0,
+    "max": 150,
+    "tiers": {
+      "blue_ocean": {"min": 0, "max": 20, "bonus": 15, "label": "🌊 蓝海"},
+      "low_comp":   {"min": 20, "max": 50, "bonus": 10, "label": "💧 低竞争"},
+      "medium":     {"min": 50, "max": 100, "bonus": 0, "label": "⚖️ 中等"},
+      "high_comp":  {"min": 100, "max": 150, "bonus": -5, "label": "🔴 高竞争"},
+      "red_ocean":  {"min": 150, "max": 999999, "bonus": -15, "label": "🚫 红海"}
+    }
+  },
+  "min_rating": 3.5,
+  "sources": {
+    "amazon_uk": {
+      "enabled": true,
+      "priority": "new_releases",
+      "categories": [
+        "kitchen", "diy-tools", "garden", "automotive", "sports",
+        "office-products", "kitchen-dining", "bathroom",
+        "storage-organisation", "cleaning", "crafts", "stationery",
+        "home", "lighting", "bedding", "pet-supplies",
+        "diy-craft-tools", "home-improvement", "pet-toys",
+        "car-accessories", "travel-accessories", "party-supplies",
+        "bathroom-accessories", "home-storage", "kitchen-accessories",
+        "phone-accessories", "tech-accessories"
+      ],
+      "urls": {
+        "new_releases": "https://www.amazon.co.uk/gp/new-releases/{cat}",
+        "bestsellers": "https://www.amazon.co.uk/gp/bestsellers/{cat}",
+        "movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/{cat}"
+      }
+    },
+    "tiktok_shop_uk": {
+      "enabled": true,
+      "priority": "high",
+      "platforms": [
+        "https://fastmoss.com/uk/ranking/product",
+        "https://www.kalodata.com/ranking/uk",
+        "https://shoplus.net/ranking/product/uk"
+      ]
+    },
+    "google_trends_uk": {"enabled": true, "priority": "high", "geo": "GB"},
+    "reddit_demand": {
+      "enabled": true,
+      "subreddits": ["r/CasualUK", "r/AskUK", "r/FrugalUK", "r/AmazonUK", "r/UKFrugal"]
+    }
+  },
+  "scoring": {
+    "base": 30,
+    "weights": {
+      "new_releases": 20, "movers_shakers": 18, "wished": 15, "gifts": 10,
+      "tiktok": 20, "google_rising": 15, "hotukdeals": 12, "youtube": 10,
+      "temu": 8, "etsy": 6, "reddit": 5,
+      "verified_low": 10, "moderate": 5,
+      "ultra_margin": 12, "high_margin": 8, "good_margin": 4,
+      "high_rating": 5,
+      "hot_category": 15, "trend_category": 8, "demand_keyword": 6, "cross_validated": 4,
+      "bsr_top50": 10, "bsr_top100": 5, "bsr_rising": 15,
+      "blue_ocean": 20, "trend_divergence": 15, "low_lqs": 8,
+      "first_seen": 10, "rank_improving": 10, "consistent_growth": 8,
+      "discovery_verified": 15, "user_selected": 10, "seasonal_hot": 10
+    },
+    "penalties": {
+      "zero_review": -15, "unverified": -8, "no_demand_signal": -15,
+      "category_mismatch": -10, "off_season": -20,
+      "category_overflow": -10, "event_overflow": -8,
+      "user_rejected": -30, "red_ocean": -15
+    },
+    "signal_voting": {
+      "strong": {"min_external": 3, "bonus": 20, "label": "🔴 强信号"},
+      "medium": {"min_external": 2, "bonus": 10, "label": "🟠 中信号"},
+      "weak":   {"min_external": 1, "bonus": 0, "label": "🟡 弱信号"},
+      "none":   {"min_external": 0, "bonus": -10, "label": "⚪ 无信号"}
+    }
+  },
+  "demand_signal_required": true,
+  "demand_signal_sources": ["new_releases", "tiktok", "google_trends"],
+  "output": {
+    "max_recommendations": 10,
+    "snapshot_dir": "data/snapshots",
+    "history_dir": "data/history",
+    "report_dir": "output"
+  },
+  "max_reviews": 200,
+  "sourcing_tiers": [
+    {"label": "低档", "cost": 0.8, "desc": "1688低价+空运"},
+    {"label": "中档", "cost": 1.2, "desc": "1688均价+空运"},
+    {"label": "高档", "cost": 1.5, "desc": "品牌供应商+卡航"}
+  ],
+  "seasonal_categories": {
+    "summer_hot": ["garden", "outdoor", "bbq", "camping", "travel", "beach", "picnic", "water sports", "solar", "insect", "mosquito", "sun shade", "cooler", "ice", "fan", "swimming", "barbecue"],
+    "summer_cold": ["christmas", "halloween", "autumn", "winter", "warm", "heating", "thermal", "fleece", "wool", "knit"],
+    "winter_hot": ["christmas", "halloween", "autumn", "winter", "warm", "heating", "thermal", "fleece", "wool", "knit", "blanket", "throw", "candle", "fairy lights", "decor"],
+    "winter_cold": ["bbq", "camping", "beach", "swimming", "water sports", "insect", "mosquito", "cooler", "ice"]
+  }
+}
