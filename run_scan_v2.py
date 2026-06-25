@@ -245,7 +245,8 @@ def filter_products(products, config):
         p["profit_margin"] = profit["margin"]
         p["net_profit"] = profit["net_profit"]
         p["cost_breakdown"] = profit["breakdown"]
-        if profit["margin"] < config["min_profit_margin"]:
+        min_margin = config.get("profit", {}).get("default_min_margin", config.get("min_profit_margin", 0.22))
+        if profit["margin"] < min_margin:
             rejected.append({"name": name[:60], "reason": f"利润率{profit['margin']*100:.1f}%", "asin": p.get("asin")}); continue
 
         # 6. 过季产品标记（不排除，但降权）
@@ -449,9 +450,19 @@ def main():
                 results = fetch_amazon(keyword)
                 filtered = []
                 for p in results:
-                    if not (5.99 <= p.get("price", 0) <= 10.0):
+                    try:
+                        price = float(p.get("price", 0))
+                        p["price"] = price
+                    except (ValueError, TypeError):
                         continue
-                    if p.get("reviews", 0) > 200:
+                    if not (5.99 <= price <= 10.0):
+                        continue
+                    try:
+                        reviews = int(p.get("reviews", 0))
+                        p["reviews"] = reviews
+                    except (ValueError, TypeError):
+                        p["reviews"] = 0
+                    if reviews > 200:
                         continue
                     forbidden, reason = is_forbidden(p.get("name", ""), p.get("category", ""))
                     if forbidden:
