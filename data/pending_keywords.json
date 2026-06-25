@@ -1,0 +1,2591 @@
+{
+  "keywords": [
+    {
+      "keyword": "talk like a pirate",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227131",
+      "priority": "high",
+      "reason": "海盗说话日 海运截止12天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227131",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "pirate-day-2026",
+      "festival_date": "2026-09-19"
+    },
+    {
+      "keyword": "piggy bank",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227141",
+      "priority": "high",
+      "reason": "海盗说话日 海运截止12天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227141",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "pirate-day-2026",
+      "festival_date": "2026-09-19"
+    },
+    {
+      "keyword": "pirate eye patch",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227147",
+      "priority": "high",
+      "reason": "海盗说话日 海运截止12天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227147",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "pirate-day-2026",
+      "festival_date": "2026-09-19"
+    },
+    {
+      "keyword": "coin bank",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227151",
+      "priority": "high",
+      "reason": "海盗说话日 海运截止12天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227151",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "pirate-day-2026",
+      "festival_date": "2026-09-19"
+    },
+    {
+      "keyword": "pirate costume",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227154",
+      "priority": "high",
+      "reason": "海盗说话日 海运截止12天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227154",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "pirate-day-2026",
+      "festival_date": "2026-09-19"
+    },
+    {
+      "keyword": "pirate coins",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227157",
+      "priority": "high",
+      "reason": "海盗说话日 海运截止12天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227157",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "pirate-day-2026",
+      "festival_date": "2026-09-19"
+    },
+    {
+      "keyword": "gold coins",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227161",
+      "priority": "high",
+      "reason": "海盗说话日 海运截止12天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227161",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "pirate-day-2026",
+      "festival_date": "2026-09-19"
+    },
+    {
+      "keyword": "party favors",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227164",
+      "priority": "high",
+      "reason": "海盗说话日 海运截止12天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227164",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "pirate-day-2026",
+      "festival_date": "2026-09-19"
+    },
+    {
+      "keyword": "loose leaf tea",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227208",
+      "priority": "high",
+      "reason": "下午茶季/Apple Day 海运截止14天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227208",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "apple-day-2026",
+      "festival_date": "2026-09-21"
+    },
+    {
+      "keyword": "tea strainer",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227213",
+      "priority": "high",
+      "reason": "下午茶季/Apple Day 海运截止14天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227213",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "apple-day-2026",
+      "festival_date": "2026-09-21"
+    },
+    {
+      "keyword": "afternoon tea season",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227217",
+      "priority": "high",
+      "reason": "下午茶季/Apple Day 海运截止14天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227217",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "apple-day-2026",
+      "festival_date": "2026-09-21"
+    },
+    {
+      "keyword": "stainless steel tea",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227220",
+      "priority": "high",
+      "reason": "下午茶季/Apple Day 海运截止14天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227220",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "apple-day-2026",
+      "festival_date": "2026-09-21"
+    },
+    {
+      "keyword": "tea ball",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227224",
+      "priority": "high",
+      "reason": "下午茶季/Apple Day 海运截止14天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227224",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "apple-day-2026",
+      "festival_date": "2026-09-21"
+    },
+    {
+      "keyword": "ceramic cups",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227227",
+      "priority": "high",
+      "reason": "下午茶季/Apple Day 海运截止14天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227227",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "apple-day-2026",
+      "festival_date": "2026-09-21"
+    },
+    {
+      "keyword": "cork coasters",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227230",
+      "priority": "high",
+      "reason": "下午茶季/Apple Day 海运截止14天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227230",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "apple-day-2026",
+      "festival_date": "2026-09-21"
+    },
+    {
+      "keyword": "tea infuser",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227234",
+      "priority": "high",
+      "reason": "下午茶季/Apple Day 海运截止14天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227234",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "apple-day-2026",
+      "festival_date": "2026-09-21"
+    },
+    {
+      "keyword": "harvest bouquet",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227266",
+      "priority": "high",
+      "reason": "收获节 海运截止20天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227266",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "harvest-festival-2026",
+      "festival_date": "2026-09-27"
+    },
+    {
+      "keyword": "pumpkin figurine decor",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227271",
+      "priority": "high",
+      "reason": "收获节 海运截止20天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227271",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "harvest-festival-2026",
+      "festival_date": "2026-09-27"
+    },
+    {
+      "keyword": "decor harvest",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227274",
+      "priority": "high",
+      "reason": "收获节 海运截止20天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227274",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "harvest-festival-2026",
+      "festival_date": "2026-09-27"
+    },
+    {
+      "keyword": "autumn wreath decoration",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227278",
+      "priority": "high",
+      "reason": "收获节 海运截止20天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227278",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "harvest-festival-2026",
+      "festival_date": "2026-09-27"
+    },
+    {
+      "keyword": "leaf candle holder",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227281",
+      "priority": "high",
+      "reason": "收获节 海运截止20天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227281",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "harvest-festival-2026",
+      "festival_date": "2026-09-27"
+    },
+    {
+      "keyword": "pumpkin decor",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227285",
+      "priority": "high",
+      "reason": "收获节 海运截止20天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227285",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "harvest-festival-2026",
+      "festival_date": "2026-09-27"
+    },
+    {
+      "keyword": "autumn leaf candle",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227288",
+      "priority": "high",
+      "reason": "收获节 海运截止20天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227288",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "harvest-festival-2026",
+      "festival_date": "2026-09-27"
+    },
+    {
+      "keyword": "autumn flowers",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227292",
+      "priority": "high",
+      "reason": "收获节 海运截止20天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227292",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "harvest-festival-2026",
+      "festival_date": "2026-09-27"
+    },
+    {
+      "keyword": "fall mug",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227329",
+      "priority": "high",
+      "reason": "秋分/秋季焕新 海运截止15天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227329",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "autumn-equinox-2026",
+      "festival_date": "2026-09-22"
+    },
+    {
+      "keyword": "autumn mug",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227334",
+      "priority": "high",
+      "reason": "秋分/秋季焕新 海运截止15天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227334",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "autumn-equinox-2026",
+      "festival_date": "2026-09-22"
+    },
+    {
+      "keyword": "indoor slippers",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227338",
+      "priority": "high",
+      "reason": "秋分/秋季焕新 海运截止15天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227338",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "autumn-equinox-2026",
+      "festival_date": "2026-09-22"
+    },
+    {
+      "keyword": "autumn blanket",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227342",
+      "priority": "high",
+      "reason": "秋分/秋季焕新 海运截止15天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227342",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "autumn-equinox-2026",
+      "festival_date": "2026-09-22"
+    },
+    {
+      "keyword": "insulated bottle",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227345",
+      "priority": "high",
+      "reason": "秋分/秋季焕新 海运截止15天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227345",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "autumn-equinox-2026",
+      "festival_date": "2026-09-22"
+    },
+    {
+      "keyword": "pumpkin spice scented",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227349",
+      "priority": "high",
+      "reason": "秋分/秋季焕新 海运截止15天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227349",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "autumn-equinox-2026",
+      "festival_date": "2026-09-22"
+    },
+    {
+      "keyword": "decor autumn",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227353",
+      "priority": "high",
+      "reason": "秋分/秋季焕新 海运截止15天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227353",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "autumn-equinox-2026",
+      "festival_date": "2026-09-22"
+    },
+    {
+      "keyword": "cozy slippers",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227357",
+      "priority": "high",
+      "reason": "秋分/秋季焕新 海运截止15天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227357",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "autumn-equinox-2026",
+      "festival_date": "2026-09-22"
+    },
+    {
+      "keyword": "best teacher",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227389",
+      "priority": "high",
+      "reason": "世界教师日 海运截止28天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227389",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "teachers-day-2026",
+      "festival_date": "2026-10-05"
+    },
+    {
+      "keyword": "desk organizer",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227394",
+      "priority": "high",
+      "reason": "网一 海运截止84天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227394",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "teachers-day-2026",
+      "festival_date": "2026-10-05"
+    },
+    {
+      "keyword": "book lover",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227398",
+      "priority": "high",
+      "reason": "世界教师日 海运截止28天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227398",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "teachers-day-2026",
+      "festival_date": "2026-10-05"
+    },
+    {
+      "keyword": "gift world",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227402",
+      "priority": "high",
+      "reason": "世界友善日 海运截止67天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227402",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "teachers-day-2026",
+      "festival_date": "2026-10-05"
+    },
+    {
+      "keyword": "home world",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227406",
+      "priority": "high",
+      "reason": "世界友善日 海运截止67天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227406",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "teachers-day-2026",
+      "festival_date": "2026-10-05"
+    },
+    {
+      "keyword": "creative pen holder",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227410",
+      "priority": "high",
+      "reason": "世界教师日 海运截止28天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227410",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "teachers-day-2026",
+      "festival_date": "2026-10-05"
+    },
+    {
+      "keyword": "pencil cup",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227414",
+      "priority": "high",
+      "reason": "世界教师日 海运截止28天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227414",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "teachers-day-2026",
+      "festival_date": "2026-10-05"
+    },
+    {
+      "keyword": "teacher bookmark",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227418",
+      "priority": "high",
+      "reason": "世界教师日 海运截止28天",
+      "ttl_days": 30,
+      "expires_at": "2026-07-25T22:32:15.227418",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "teachers-day-2026",
+      "festival_date": "2026-10-05"
+    },
+    {
+      "keyword": "affirmation cards",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227450",
+      "priority": "normal",
+      "reason": "世界精神卫生日 海运截止33天",
+      "ttl_days": 33,
+      "expires_at": "2026-07-28T22:32:15.227450",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "mental-health-day-2026",
+      "festival_date": "2026-10-10"
+    },
+    {
+      "keyword": "inspirational bracelet set",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227461",
+      "priority": "normal",
+      "reason": "世界精神卫生日 海运截止33天",
+      "ttl_days": 33,
+      "expires_at": "2026-07-28T22:32:15.227461",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "mental-health-day-2026",
+      "festival_date": "2026-10-10"
+    },
+    {
+      "keyword": "stress relief squeeze",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227465",
+      "priority": "normal",
+      "reason": "世界精神卫生日 海运截止33天",
+      "ttl_days": 33,
+      "expires_at": "2026-07-28T22:32:15.227465",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "mental-health-day-2026",
+      "festival_date": "2026-10-10"
+    },
+    {
+      "keyword": "fitness",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227473",
+      "priority": "normal",
+      "reason": "世界精神卫生日 海运截止33天",
+      "ttl_days": 33,
+      "expires_at": "2026-07-28T22:32:15.227473",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "mental-health-day-2026",
+      "festival_date": "2026-10-10"
+    },
+    {
+      "keyword": "stress ball",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227477",
+      "priority": "normal",
+      "reason": "世界精神卫生日 海运截止33天",
+      "ttl_days": 33,
+      "expires_at": "2026-07-28T22:32:15.227477",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "mental-health-day-2026",
+      "festival_date": "2026-10-10"
+    },
+    {
+      "keyword": "apparel world",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227481",
+      "priority": "normal",
+      "reason": "世界友善日 海运截止67天",
+      "ttl_days": 33,
+      "expires_at": "2026-07-28T22:32:15.227481",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "mental-health-day-2026",
+      "festival_date": "2026-10-10"
+    },
+    {
+      "keyword": "office accessories",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227512",
+      "priority": "normal",
+      "reason": "Boss's Day老板节 海运截止39天",
+      "ttl_days": 39,
+      "expires_at": "2026-08-03T22:32:15.227512",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "boss-day-2026",
+      "festival_date": "2026-10-16"
+    },
+    {
+      "keyword": "desk toy",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227517",
+      "priority": "normal",
+      "reason": "Boss's Day老板节 海运截止39天",
+      "ttl_days": 39,
+      "expires_at": "2026-08-03T22:32:15.227517",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "boss-day-2026",
+      "festival_date": "2026-10-16"
+    },
+    {
+      "keyword": "boss mug",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227521",
+      "priority": "normal",
+      "reason": "Boss's Day老板节 海运截止39天",
+      "ttl_days": 39,
+      "expires_at": "2026-08-03T22:32:15.227521",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "boss-day-2026",
+      "festival_date": "2026-10-16"
+    },
+    {
+      "keyword": "fidget spinner",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227525",
+      "priority": "normal",
+      "reason": "Boss's Day老板节 海运截止39天",
+      "ttl_days": 39,
+      "expires_at": "2026-08-03T22:32:15.227525",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "boss-day-2026",
+      "festival_date": "2026-10-16"
+    },
+    {
+      "keyword": "office toy",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227529",
+      "priority": "normal",
+      "reason": "Boss's Day老板节 海运截止39天",
+      "ttl_days": 39,
+      "expires_at": "2026-08-03T22:32:15.227529",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "boss-day-2026",
+      "festival_date": "2026-10-16"
+    },
+    {
+      "keyword": "stress relief",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227534",
+      "priority": "normal",
+      "reason": "Boss's Day老板节 海运截止39天",
+      "ttl_days": 39,
+      "expires_at": "2026-08-03T22:32:15.227534",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "boss-day-2026",
+      "festival_date": "2026-10-16"
+    },
+    {
+      "keyword": "funny boss mug",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227538",
+      "priority": "normal",
+      "reason": "Boss's Day老板节 海运截止39天",
+      "ttl_days": 39,
+      "expires_at": "2026-08-03T22:32:15.227538",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "boss-day-2026",
+      "festival_date": "2026-10-16"
+    },
+    {
+      "keyword": "fidget spinner desk",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227542",
+      "priority": "normal",
+      "reason": "Boss's Day老板节 海运截止39天",
+      "ttl_days": 39,
+      "expires_at": "2026-08-03T22:32:15.227542",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "boss-day-2026",
+      "festival_date": "2026-10-16"
+    },
+    {
+      "keyword": "diwali cards",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227574",
+      "priority": "normal",
+      "reason": "排灯节 海运截止43天",
+      "ttl_days": 43,
+      "expires_at": "2026-08-07T22:32:15.227574",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "diwali-2026",
+      "festival_date": "2026-10-20"
+    },
+    {
+      "keyword": "string lights",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227579",
+      "priority": "normal",
+      "reason": "National Tree Dressing Day 海运截止89天",
+      "ttl_days": 43,
+      "expires_at": "2026-08-07T22:32:15.227579",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "diwali-2026",
+      "festival_date": "2026-10-20"
+    },
+    {
+      "keyword": "diwali",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227584",
+      "priority": "normal",
+      "reason": "排灯节 海运截止43天",
+      "ttl_days": 43,
+      "expires_at": "2026-08-07T22:32:15.227584",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "diwali-2026",
+      "festival_date": "2026-10-20"
+    },
+    {
+      "keyword": "tea lights",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227588",
+      "priority": "normal",
+      "reason": "排灯节 海运截止43天",
+      "ttl_days": 43,
+      "expires_at": "2026-08-07T22:32:15.227588",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "diwali-2026",
+      "festival_date": "2026-10-20"
+    },
+    {
+      "keyword": "led diya string",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227592",
+      "priority": "normal",
+      "reason": "排灯节 海运截止43天",
+      "ttl_days": 43,
+      "expires_at": "2026-08-07T22:32:15.227592",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "diwali-2026",
+      "festival_date": "2026-10-20"
+    },
+    {
+      "keyword": "table runner",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227597",
+      "priority": "normal",
+      "reason": "排灯节 海运截止43天",
+      "ttl_days": 43,
+      "expires_at": "2026-08-07T22:32:15.227597",
+      "scan_count": 1,
+      "last_scanned": "2026-06-25",
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 1,
+      "status": "active",
+      "festival_id": "diwali-2026",
+      "festival_date": "2026-10-20"
+    },
+    {
+      "keyword": "festival candles",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227601",
+      "priority": "normal",
+      "reason": "排灯节 海运截止43天",
+      "ttl_days": 43,
+      "expires_at": "2026-08-07T22:32:15.227601",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "diwali-2026",
+      "festival_date": "2026-10-20"
+    },
+    {
+      "keyword": "festive table",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227606",
+      "priority": "normal",
+      "reason": "排灯节 海运截止43天",
+      "ttl_days": 43,
+      "expires_at": "2026-08-07T22:32:15.227606",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "diwali-2026",
+      "festival_date": "2026-10-20"
+    },
+    {
+      "keyword": "ghost throw pillow",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227654",
+      "priority": "normal",
+      "reason": "万圣节 海运截止54天",
+      "ttl_days": 54,
+      "expires_at": "2026-08-18T22:32:15.227654",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "halloween-2026",
+      "festival_date": "2026-10-31"
+    },
+    {
+      "keyword": "halloween mug",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227660",
+      "priority": "normal",
+      "reason": "万圣节 海运截止54天",
+      "ttl_days": 54,
+      "expires_at": "2026-08-18T22:32:15.227660",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "halloween-2026",
+      "festival_date": "2026-10-31"
+    },
+    {
+      "keyword": "gift boxes",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227664",
+      "priority": "normal",
+      "reason": "万圣节 海运截止54天",
+      "ttl_days": 54,
+      "expires_at": "2026-08-18T22:32:15.227664",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "halloween-2026",
+      "festival_date": "2026-10-31"
+    },
+    {
+      "keyword": "halloween hat",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227669",
+      "priority": "normal",
+      "reason": "万圣节 海运截止54天",
+      "ttl_days": 54,
+      "expires_at": "2026-08-18T22:32:15.227669",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "halloween-2026",
+      "festival_date": "2026-10-31"
+    },
+    {
+      "keyword": "foam graveyard tombstone",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227673",
+      "priority": "normal",
+      "reason": "万圣节 海运截止54天",
+      "ttl_days": 54,
+      "expires_at": "2026-08-18T22:32:15.227673",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "halloween-2026",
+      "festival_date": "2026-10-31"
+    },
+    {
+      "keyword": "outdoor halloween",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227678",
+      "priority": "normal",
+      "reason": "万圣节 海运截止54天",
+      "ttl_days": 54,
+      "expires_at": "2026-08-18T22:32:15.227678",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "halloween-2026",
+      "festival_date": "2026-10-31"
+    },
+    {
+      "keyword": "ghost decor",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227682",
+      "priority": "normal",
+      "reason": "万圣节 海运截止54天",
+      "ttl_days": 54,
+      "expires_at": "2026-08-18T22:32:15.227682",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "halloween-2026",
+      "festival_date": "2026-10-31"
+    },
+    {
+      "keyword": "trick or treat",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227687",
+      "priority": "normal",
+      "reason": "万圣节 海运截止54天",
+      "ttl_days": 54,
+      "expires_at": "2026-08-18T22:32:15.227687",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "halloween-2026",
+      "festival_date": "2026-10-31"
+    },
+    {
+      "keyword": "glow sticks",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227716",
+      "priority": "normal",
+      "reason": "篝火节 海运截止59天",
+      "ttl_days": 59,
+      "expires_at": "2026-08-23T22:32:15.227716",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "bonfire-night-2026",
+      "festival_date": "2026-11-05"
+    },
+    {
+      "keyword": "bonfire night scarf",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227722",
+      "priority": "normal",
+      "reason": "篝火节 海运截止59天",
+      "ttl_days": 59,
+      "expires_at": "2026-08-23T22:32:15.227722",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "bonfire-night-2026",
+      "festival_date": "2026-11-05"
+    },
+    {
+      "keyword": "glow stick set",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227727",
+      "priority": "normal",
+      "reason": "篝火节 海运截止59天",
+      "ttl_days": 59,
+      "expires_at": "2026-08-23T22:32:15.227727",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "bonfire-night-2026",
+      "festival_date": "2026-11-05"
+    },
+    {
+      "keyword": "plaid scarf",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227732",
+      "priority": "normal",
+      "reason": "篝火节 海运截止59天",
+      "ttl_days": 59,
+      "expires_at": "2026-08-23T22:32:15.227732",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "bonfire-night-2026",
+      "festival_date": "2026-11-05"
+    },
+    {
+      "keyword": "bonfire night",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227736",
+      "priority": "normal",
+      "reason": "篝火节 海运截止59天",
+      "ttl_days": 59,
+      "expires_at": "2026-08-23T22:32:15.227736",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "bonfire-night-2026",
+      "festival_date": "2026-11-05"
+    },
+    {
+      "keyword": "hand warmers",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227741",
+      "priority": "normal",
+      "reason": "篝火节 海运截止59天",
+      "ttl_days": 59,
+      "expires_at": "2026-08-23T22:32:15.227741",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "bonfire-night-2026",
+      "festival_date": "2026-11-05"
+    },
+    {
+      "keyword": "bonfire scarf",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227746",
+      "priority": "normal",
+      "reason": "篝火节 海运截止59天",
+      "ttl_days": 59,
+      "expires_at": "2026-08-23T22:32:15.227746",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "bonfire-night-2026",
+      "festival_date": "2026-11-05"
+    },
+    {
+      "keyword": "apparel bonfire",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227751",
+      "priority": "normal",
+      "reason": "篝火节 海运截止59天",
+      "ttl_days": 59,
+      "expires_at": "2026-08-23T22:32:15.227751",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "bonfire-night-2026",
+      "festival_date": "2026-11-05"
+    },
+    {
+      "keyword": "decor remembrance",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227781",
+      "priority": "normal",
+      "reason": "国殇纪念日 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.227781",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "remembrance-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "remembrance day",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227787",
+      "priority": "normal",
+      "reason": "国殇纪念日 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.227787",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "remembrance-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "memorial wooden sign",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227792",
+      "priority": "normal",
+      "reason": "国殇纪念日 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.227792",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "remembrance-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "lest we forget",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227797",
+      "priority": "normal",
+      "reason": "国殇纪念日 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.227797",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "remembrance-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "white peace themed",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227802",
+      "priority": "normal",
+      "reason": "国殇纪念日 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.227802",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "remembrance-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "memorial candle",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227806",
+      "priority": "normal",
+      "reason": "国殇纪念日 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.227806",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "remembrance-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "poppy brooch pin",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227811",
+      "priority": "normal",
+      "reason": "国殇纪念日 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.227811",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "remembrance-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "poppy pin",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227816",
+      "priority": "normal",
+      "reason": "国殇纪念日 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.227816",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "remembrance-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "be kind mug",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227851",
+      "priority": "normal",
+      "reason": "世界友善日 海运截止67天",
+      "ttl_days": 67,
+      "expires_at": "2026-08-31T22:32:15.227851",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "kindness-day-2026",
+      "festival_date": "2026-11-13"
+    },
+    {
+      "keyword": "kindness keychain inspirational",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227858",
+      "priority": "normal",
+      "reason": "世界友善日 海运截止67天",
+      "ttl_days": 67,
+      "expires_at": "2026-08-31T22:32:15.227858",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "kindness-day-2026",
+      "festival_date": "2026-11-13"
+    },
+    {
+      "keyword": "kindness sticker set",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227863",
+      "priority": "normal",
+      "reason": "世界友善日 海运截止67天",
+      "ttl_days": 67,
+      "expires_at": "2026-08-31T22:32:15.227863",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "kindness-day-2026",
+      "festival_date": "2026-11-13"
+    },
+    {
+      "keyword": "kindness stickers",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227872",
+      "priority": "normal",
+      "reason": "世界友善日 海运截止67天",
+      "ttl_days": 67,
+      "expires_at": "2026-08-31T22:32:15.227872",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "kindness-day-2026",
+      "festival_date": "2026-11-13"
+    },
+    {
+      "keyword": "positive mug",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227884",
+      "priority": "normal",
+      "reason": "世界友善日 海运截止67天",
+      "ttl_days": 67,
+      "expires_at": "2026-08-31T22:32:15.227884",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "kindness-day-2026",
+      "festival_date": "2026-11-13"
+    },
+    {
+      "keyword": "men's day mug",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227923",
+      "priority": "normal",
+      "reason": "国际男人节 海运截止73天",
+      "ttl_days": 73,
+      "expires_at": "2026-09-06T22:32:15.227923",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "mens-day-2026",
+      "festival_date": "2026-11-19"
+    },
+    {
+      "keyword": "multi-tool keychain",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227929",
+      "priority": "normal",
+      "reason": "国际男人节 海运截止73天",
+      "ttl_days": 73,
+      "expires_at": "2026-09-06T22:32:15.227929",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "mens-day-2026",
+      "festival_date": "2026-11-19"
+    },
+    {
+      "keyword": "men's leather card",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227935",
+      "priority": "normal",
+      "reason": "国际男人节 海运截止73天",
+      "ttl_days": 73,
+      "expires_at": "2026-09-06T22:32:15.227935",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "mens-day-2026",
+      "festival_date": "2026-11-19"
+    },
+    {
+      "keyword": "men gift",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227940",
+      "priority": "normal",
+      "reason": "国际男人节 海运截止73天",
+      "ttl_days": 73,
+      "expires_at": "2026-09-06T22:32:15.227940",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "mens-day-2026",
+      "festival_date": "2026-11-19"
+    },
+    {
+      "keyword": "mens socks",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227946",
+      "priority": "normal",
+      "reason": "国际男人节 海运截止73天",
+      "ttl_days": 73,
+      "expires_at": "2026-09-06T22:32:15.227946",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "mens-day-2026",
+      "festival_date": "2026-11-19"
+    },
+    {
+      "keyword": "wash bag",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227951",
+      "priority": "normal",
+      "reason": "国际男人节 海运截止73天",
+      "ttl_days": 73,
+      "expires_at": "2026-09-06T22:32:15.227951",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "mens-day-2026",
+      "festival_date": "2026-11-19"
+    },
+    {
+      "keyword": "leather wallet",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227956",
+      "priority": "normal",
+      "reason": "国际男人节 海运截止73天",
+      "ttl_days": 73,
+      "expires_at": "2026-09-06T22:32:15.227956",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "mens-day-2026",
+      "festival_date": "2026-11-19"
+    },
+    {
+      "keyword": "toiletry bag",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.227961",
+      "priority": "normal",
+      "reason": "国际男人节 海运截止73天",
+      "ttl_days": 73,
+      "expires_at": "2026-09-06T22:32:15.227961",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "mens-day-2026",
+      "festival_date": "2026-11-19"
+    },
+    {
+      "keyword": "night light",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228008",
+      "priority": "normal",
+      "reason": "黑五 海运截止81天",
+      "ttl_days": 81,
+      "expires_at": "2026-09-14T22:32:15.228008",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "black-friday-2026",
+      "festival_date": "2026-11-27"
+    },
+    {
+      "keyword": "kitchen organizer rack",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228015",
+      "priority": "normal",
+      "reason": "黑五 海运截止81天",
+      "ttl_days": 81,
+      "expires_at": "2026-09-14T22:32:15.228015",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "black-friday-2026",
+      "festival_date": "2026-11-27"
+    },
+    {
+      "keyword": "black friday",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228020",
+      "priority": "normal",
+      "reason": "黑五 海运截止81天",
+      "ttl_days": 81,
+      "expires_at": "2026-09-14T22:32:15.228020",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "black-friday-2026",
+      "festival_date": "2026-11-27"
+    },
+    {
+      "keyword": "rechargeable warmer",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228025",
+      "priority": "normal",
+      "reason": "黑五 海运截止81天",
+      "ttl_days": 81,
+      "expires_at": "2026-09-14T22:32:15.228025",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "black-friday-2026",
+      "festival_date": "2026-11-27"
+    },
+    {
+      "keyword": "portable humidifier",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228031",
+      "priority": "normal",
+      "reason": "黑五 海运截止81天",
+      "ttl_days": 81,
+      "expires_at": "2026-09-14T22:32:15.228031",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "black-friday-2026",
+      "festival_date": "2026-11-27"
+    },
+    {
+      "keyword": "vanity mirror",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228036",
+      "priority": "normal",
+      "reason": "黑五 海运截止81天",
+      "ttl_days": 81,
+      "expires_at": "2026-09-14T22:32:15.228036",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "black-friday-2026",
+      "festival_date": "2026-11-27"
+    },
+    {
+      "keyword": "pet toys",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228041",
+      "priority": "normal",
+      "reason": "黑五 海运截止81天",
+      "ttl_days": 81,
+      "expires_at": "2026-09-14T22:32:15.228041",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "black-friday-2026",
+      "festival_date": "2026-11-27"
+    },
+    {
+      "keyword": "led mirror",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228047",
+      "priority": "normal",
+      "reason": "黑五 海运截止81天",
+      "ttl_days": 81,
+      "expires_at": "2026-09-14T22:32:15.228047",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "black-friday-2026",
+      "festival_date": "2026-11-27"
+    },
+    {
+      "keyword": "cleaning kit",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228084",
+      "priority": "normal",
+      "reason": "网一 海运截止84天",
+      "ttl_days": 84,
+      "expires_at": "2026-09-17T22:32:15.228084",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "cyber-monday-2026",
+      "festival_date": "2026-11-30"
+    },
+    {
+      "keyword": "phone cover",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228090",
+      "priority": "normal",
+      "reason": "网一 海运截止84天",
+      "ttl_days": 84,
+      "expires_at": "2026-09-17T22:32:15.228090",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "cyber-monday-2026",
+      "festival_date": "2026-11-30"
+    },
+    {
+      "keyword": "charging cable",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228100",
+      "priority": "normal",
+      "reason": "网一 海运截止84天",
+      "ttl_days": 84,
+      "expires_at": "2026-09-17T22:32:15.228100",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "cyber-monday-2026",
+      "festival_date": "2026-11-30"
+    },
+    {
+      "keyword": "mouse pad",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228106",
+      "priority": "normal",
+      "reason": "网一 海运截止84天",
+      "ttl_days": 84,
+      "expires_at": "2026-09-17T22:32:15.228106",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "cyber-monday-2026",
+      "festival_date": "2026-11-30"
+    },
+    {
+      "keyword": "extended mouse pad",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228111",
+      "priority": "normal",
+      "reason": "网一 海运截止84天",
+      "ttl_days": 84,
+      "expires_at": "2026-09-17T22:32:15.228111",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "cyber-monday-2026",
+      "festival_date": "2026-11-30"
+    },
+    {
+      "keyword": "laptop case",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228116",
+      "priority": "normal",
+      "reason": "网一 海运截止84天",
+      "ttl_days": 84,
+      "expires_at": "2026-09-17T22:32:15.228116",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "cyber-monday-2026",
+      "festival_date": "2026-11-30"
+    },
+    {
+      "keyword": "usb hub storage",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228122",
+      "priority": "normal",
+      "reason": "网一 海运截止84天",
+      "ttl_days": 84,
+      "expires_at": "2026-09-17T22:32:15.228122",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "cyber-monday-2026",
+      "festival_date": "2026-11-30"
+    },
+    {
+      "keyword": "ultrasonic aroma diffuser",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228160",
+      "priority": "normal",
+      "reason": "双十一/光棍节 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.228160",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "singles-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "security camera",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228166",
+      "priority": "normal",
+      "reason": "双十一/光棍节 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.228166",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "singles-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "portable screen",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228172",
+      "priority": "normal",
+      "reason": "双十一/光棍节 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.228172",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "singles-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "phone accessories bundle",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228178",
+      "priority": "normal",
+      "reason": "双十一/光棍节 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.228178",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "singles-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "gadget set",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228185",
+      "priority": "normal",
+      "reason": "双十一/光棍节 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.228185",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "singles-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "wifi camera",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228190",
+      "priority": "normal",
+      "reason": "双十一/光棍节 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.228190",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "singles-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "home cinema",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228195",
+      "priority": "normal",
+      "reason": "双十一/光棍节 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.228195",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "singles-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "portable projector screen",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228201",
+      "priority": "normal",
+      "reason": "双十一/光棍节 海运截止65天",
+      "ttl_days": 65,
+      "expires_at": "2026-08-29T22:32:15.228201",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "singles-day-2026",
+      "festival_date": "2026-11-11"
+    },
+    {
+      "keyword": "tree hanging",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228233",
+      "priority": "normal",
+      "reason": "National Tree Dressing Day 海运截止89天",
+      "ttl_days": 89,
+      "expires_at": "2026-09-22T22:32:15.228233",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "tree-dressing-day-2026",
+      "festival_date": "2026-12-05"
+    },
+    {
+      "keyword": "led string lights",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228244",
+      "priority": "normal",
+      "reason": "National Tree Dressing Day 海运截止89天",
+      "ttl_days": 89,
+      "expires_at": "2026-09-22T22:32:15.228244",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "tree-dressing-day-2026",
+      "festival_date": "2026-12-05"
+    },
+    {
+      "keyword": "hanging decor",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228250",
+      "priority": "normal",
+      "reason": "National Tree Dressing Day 海运截止89天",
+      "ttl_days": 89,
+      "expires_at": "2026-09-22T22:32:15.228250",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "tree-dressing-day-2026",
+      "festival_date": "2026-12-05"
+    },
+    {
+      "keyword": "natural pine cone",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228255",
+      "priority": "normal",
+      "reason": "National Tree Dressing Day 海运截止89天",
+      "ttl_days": 89,
+      "expires_at": "2026-09-22T22:32:15.228255",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "tree-dressing-day-2026",
+      "festival_date": "2026-12-05"
+    },
+    {
+      "keyword": "tree ribbon",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228261",
+      "priority": "normal",
+      "reason": "National Tree Dressing Day 海运截止89天",
+      "ttl_days": 89,
+      "expires_at": "2026-09-22T22:32:15.228261",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "tree-dressing-day-2026",
+      "festival_date": "2026-12-05"
+    },
+    {
+      "keyword": "outdoor ribbon",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228267",
+      "priority": "normal",
+      "reason": "National Tree Dressing Day 海运截止89天",
+      "ttl_days": 89,
+      "expires_at": "2026-09-22T22:32:15.228267",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "tree-dressing-day-2026",
+      "festival_date": "2026-12-05"
+    },
+    {
+      "keyword": "outdoor decorative ribbon",
+      "sources": [
+        "festival"
+      ],
+      "injected_at": "2026-06-25T22:32:15.228272",
+      "priority": "normal",
+      "reason": "National Tree Dressing Day 海运截止89天",
+      "ttl_days": 89,
+      "expires_at": "2026-09-22T22:32:15.228272",
+      "scan_count": 0,
+      "last_scanned": null,
+      "products_found_total": 0,
+      "top_score": 0,
+      "top_asin": "",
+      "consecutive_empty": 0,
+      "status": "active",
+      "festival_id": "tree-dressing-day-2026",
+      "festival_date": "2026-12-05"
+    }
+  ],
+  "stats": {
+    "total_injected": 129,
+    "active": 129,
+    "expired": 0,
+    "stale": 0
+  },
+  "last_updated": "2026-06-25T22:34:44.520916"
+}
