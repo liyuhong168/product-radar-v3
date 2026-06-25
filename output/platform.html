@@ -830,7 +830,7 @@ renderAll();
 <script src="festivals.js"></script>
 <script src="festival_render.js"></script>
 <script>
-fpInit();
+// V3: fpInit() deferred to loadAllData() to avoid race condition
 
 // ===== V3 Dynamic Data Loading =====
 async function loadAllData() {
@@ -869,8 +869,13 @@ async function loadAllData() {
       if (pickerRadar) initDatePicker(RADAR_DATES, pickerRadar);
     }
 
+    // Render all tabs
     if (typeof renderAll === 'function') renderAll();
 
+    // V3: Initialize festival module AFTER data is loaded
+    if (typeof fpInit === 'function') fpInit();
+
+    // Data freshness indicator
     const el = document.getElementById('dataFreshness');
     if (el && radarDates.length > 0) {
       const latest = radarDates[0];
@@ -895,6 +900,8 @@ async function loadAllData() {
     } catch(e) {}
   } catch(e) {
     console.error('[V3] Load error:', e);
+    // Fallback: still try to init festival module
+    if (typeof fpInit === 'function') fpInit();
   }
 }
 
