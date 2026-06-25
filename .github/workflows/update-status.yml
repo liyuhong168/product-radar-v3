@@ -1,0 +1,49 @@
+name: Update Product Status
+on:
+  workflow_dispatch:
+    inputs:
+      asin:
+        description: 'Product ASIN'
+        required: true
+        type: string
+      status:
+        description: 'New status'
+        required: true
+        type: choice
+        options:
+          - 'pending'
+          - 'supplier'
+          - 'sample'
+          - 'listed'
+          - 'rejected'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Update status.json
+        run: |
+          # Read current status
+          if [ -f status.json ]; then
+            CURRENT=$(cat status.json)
+          else
+            CURRENT="{}"
+          fi
+          
+          # Update with new status
+          ASIN="${{ github.event.inputs.asin }}"
+          STATUS="${{ github.event.inputs.status }}"
+          
+          # Use jq to update JSON
+          echo "$CURRENT" | jq --arg asin "$ASIN" --arg status "$STATUS" '.[$asin] = $status' > status.json
+          
+          # Commit and push
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add status.json
+          git commit -m "update status: $ASIN -> $STATUS"
+          git push
