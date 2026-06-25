@@ -178,86 +178,32 @@ def build_feedback_json():
 
 
 def build_platform_html():
-    """Generate platform.html with data file references."""
+    """Verify platform.html has V3 data loading code. No transformation needed."""
     template_path = BASE / "output" / "platform.html"
     if not template_path.exists():
-        print("Warning: platform.html template not found, skipping HTML build")
+        print("Warning: platform.html not found, skipping")
         return
 
     content = template_path.read_text(encoding="utf-8")
 
-    # Replace inline data with fetch calls
-    # Find and replace RADAR_ALL inline data
-    radar_pattern = r'const RADAR_ALL\s*=\s*\{[^;]*\};'
-    radar_replacement = 'let RADAR_ALL = {};\nlet DISC_ALL = {};\nlet FESTIVALS_DATA = [];\nlet SIGNALS_DATA = {};\nlet FEEDBACK_DATA = {rejected:[],selected:{},outcomes:{}};'
-    content = re.sub(radar_pattern, radar_replacement, content, count=1, flags=re.DOTALL)
+    # Verify V3 markers exist
+    has_load = "loadAllData" in content
+    has_fetch = "fetch('radar.json')" in content
+    has_fp_init = "fpInit" in content
 
-    # Find and replace DISC_ALL inline data
-    disc_pattern = r'const DISC_ALL\s*=\s*\{[^;]*\};'
-    content = re.sub(disc_pattern, '', content, count=1, flags=re.DOTALL)
+    if has_load and has_fetch:
+        print("platform.html: V3 data loading OK")
+    else:
+        print("WARNING: platform.html missing V3 data loading code!")
+        if not has_load:
+            print("  - Missing: loadAllData function")
+        if not has_fetch:
+            print("  - Missing: fetch('radar.json') call")
 
-    # Add data loading function before the closing </script>
-    load_code = """
-// ===== V3 Data Loading =====
-async function loadAllData() {
-  try {
-    const [radar, disc, fest, sigs, fb] = await Promise.all([
-      fetch('radar.json').then(r => r.ok ? r.json() : {}).catch(() => ({})),
-      fetch('discovery.json').then(r => r.ok ? r.json() : {}).catch(() => ({})),
-      fetch('festivals.json').then(r => r.ok ? r.json() : []).catch(() => []),
-      fetch('signals.json').then(r => r.ok ? r.json() : {}).catch(() => ({})),
-      fetch('feedback.json').then(r => r.ok ? r.json() : {rejected:[],selected:{},outcomes:{}}).catch(() => ({rejected:[],selected:{},outcomes:{}}))
-    ]);
-    RADAR_ALL = radar;
-    DISC_ALL = disc;
-    FESTIVALS_DATA = fest;
-    SIGNALS_DATA = sigs;
-    FEEDBACK_DATA = fb;
-
-    // Update dates
-    const radarDates = Object.keys(RADAR_ALL).sort().reverse();
-    const discDates = Object.keys(DISC_ALL).sort().reverse();
-    if (radarDates.length > 0) {
-      DATES = radarDates;
-      RADAR_DATES = radarDates;
-    }
-    if (discDates.length > 0) {
-      DISC_DATES = discDates;
-    }
-    if (!DATES || DATES.length === 0) {
-      DATES = [...new Set([...radarDates, ...discDates])].sort().reverse();
-    }
-
-    // Init
-    if (typeof initDatePicker === 'function') initDatePicker(DATES, picker);
-    if (typeof initDatePicker === 'function' && pickerRadar) initDatePicker(RADAR_DATES, pickerRadar);
-    if (typeof renderAll === 'function') renderAll();
-    if (typeof fpInit === 'function') fpInit();
-
-    // Show freshness
-    const freshnessEl = document.getElementById('dataFreshness');
-    if (freshnessEl && radarDates.length > 0) {
-      const latest = radarDates[0];
-      const diff = Math.floor((Date.now() - new Date(latest).getTime()) / 86400000);
-      const dot = diff <= 1 ? 'green' : diff <= 3 ? 'yellow' : 'orange';
-      const msg = diff <= 0 ? '数据刚刚更新' : diff <= 1 ? '数据更新于昨天' : '数据已' + diff + '天未更新';
-      freshnessEl.innerHTML = '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--' + (dot === 'green' ? 'green' : dot === 'yellow' ? 'orange' : 'red') + ');margin-right:6px"></span>' + msg;
-    }
-
-    console.log('[V3] Data loaded:', radarDates.length, 'radar dates,', discDates.length, 'discovery dates,', fest.length, 'festivals');
-  } catch (e) {
-    console.error('[V3] Failed to load data:', e);
-  }
-}
-
-loadAllData();
-"""
-    content = content.replace('</script>\n<script src="festivals.js">', load_code + '</script>\n<!-- festivals.js loaded via JSON -->\n<!--')
-    content = content.replace('</script>\n<script src="festival_render.js">', '-->\n<script src="festival_render.js">')
-
-    output_path = BASE / "output" / "platform.html"
-    output_path.write_text(content, encoding="utf-8")
-    print("Built platform.html (data externalized)")
+    if has_fp_init:
+        print("platform.html: fpInit present OK")
+    else:
+        print("WARNING: platform.html missing fpInit!")
 
 
 def main():
