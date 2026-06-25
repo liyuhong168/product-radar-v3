@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选品雷达V2 | 2026-06-25</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='none' stroke='%23007AFF' stroke-width='2'/%3E%3Ccircle cx='24' cy='24' r='16' fill='none' stroke='%23007AFF' stroke-width='1.5' opacity='0.5'/%3E%3Ccircle cx='24' cy='24' r='10' fill='none' stroke='%23007AFF' stroke-width='1' opacity='0.3'/%3E%3Cline x1='24' y1='24' x2='24' y2='4' stroke='%23007AFF' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M24,24 L24,4 A20,20 0 0,1 40,16 Z' fill='%23007AFF' opacity='0.2'/%3E%3Ccircle cx='24' cy='24' r='3' fill='%23007AFF'/%3E%3Ccircle cx='32' cy='14' r='2.5' fill='%2334C759'/%3E%3Ccircle cx='18' cy='12' r='2' fill='%23FF9500'/%3E%3C/svg%3E">
+    <style>
+:root {
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --border: #e5e5ea;
+    --radius: 16px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1440px; margin: 0 auto; padding: 24px; }
+
+/* Header */
+.header { margin-bottom: 20px; }
+.header-top { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.header h1 { font-size: 28px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.radar-logo { flex-shrink: 0; }
+.version {
+    font-size: 12px; background: #007AFF; color: white;
+    padding: 2px 8px; border-radius: 8px; vertical-align: middle;
+}
+.date-picker {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-left: 12px;
+}
+.date-picker select {
+    padding: 4px 10px; border: 2px solid #007AFF; border-radius: 8px;
+    font-size: 13px; background: white; color: #007AFF;
+    font-weight: 600; cursor: pointer; outline: none;
+}
+.date-picker label { font-size: 12px; color: var(--text-secondary); }
+.scan-info { color: var(--text-secondary); font-size: 14px; }
+.stat-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.stat-badge {
+    padding: 6px 14px; border-radius: 20px;
+    font-size: 13px; font-weight: 600;
+}
+.trend-section {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 8px; flex-wrap: wrap;
+}
+.trend-label { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.trend-chip {
+    padding: 4px 12px; border-radius: 14px;
+    background: #f0f0f5; font-size: 12px;
+    color: var(--text-secondary);
+}
+.trend-chip b { color: #FF9500; margin-left: 4px; }
+
+/* Tab Bar */
+.tab-bar { margin-bottom: 16px; }
+.channel-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.tab {
+    padding: 10px 18px; border: none; border-radius: 12px;
+    background: var(--card-bg); color: var(--text-secondary);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    white-space: nowrap; transition: all 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.tab:hover { background: #e8e8ed; }
+.tab.active {
+    background: var(--ch-color, #007AFF);
+    color: white;
+}
+.tab-count {
+    display: inline-block; min-width: 20px;
+    background: rgba(255,255,255,0.3); border-radius: 10px;
+    padding: 0 6px; font-size: 12px; text-align: center;
+}
+.tab:not(.active) .tab-count { background: #e5e5ea; }
+
+/* Status Filter */
+.status-filter {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 10px; flex-wrap: wrap;
+}
+.filter-label { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.status-tab {
+    padding: 5px 12px; border: 2px solid var(--s-color, #8e8e93);
+    border-radius: 16px; background: transparent;
+    color: var(--s-color, #8e8e93); font-size: 12px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.status-tab:hover, .status-tab.active {
+    background: var(--s-color, #8e8e93);
+    color: white;
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; flex-wrap: wrap;
+    padding: 12px 16px; background: var(--card-bg);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.search-box { flex: 1; min-width: 200px; }
+.search-box input {
+    width: 100%; padding: 8px 14px; border: 2px solid var(--border);
+    border-radius: 10px; font-size: 14px; outline: none;
+    transition: border-color 0.2s;
+}
+.search-box input:focus { border-color: #007AFF; }
+.filter-group { display: flex; align-items: center; gap: 6px; }
+.filter-group label { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.filter-group select {
+    padding: 7px 12px; border: 2px solid var(--border);
+    border-radius: 10px; font-size: 13px; background: white;
+    cursor: pointer; outline: none;
+}
+.btn-export {
+    padding: 8px 16px; border: none; border-radius: 10px;
+    background: #007AFF; color: white; font-size: 13px;
+    font-weight: 600; cursor: pointer; transition: opacity 0.2s;
+}
+.btn-export:hover { opacity: 0.85; }
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+}
+
+/* Product Card */
+.product-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column; gap: 10px;
+    border-left: 4px solid transparent;
+}
+.product-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+.product-card[data-status="listed"] { border-left-color: #34C759; opacity: 0.7; }
+.product-card[data-status="rejected"] { border-left-color: #FF3B30; opacity: 0.5; }
+
+.card-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.channel-badge {
+    padding: 3px 10px; border-radius: 8px;
+    font-size: 11px; font-weight: 700;
+    background: var(--ch-color, #007AFF); color: white;
+}
+.signal-badges { display: flex; gap: 4px; }
+.signal-badge {
+    padding: 2px 8px; border-radius: 6px;
+    font-size: 10px; font-weight: 600;
+    background: #f0f0f5; color: var(--text-secondary);
+}
+.signal-badge.tiktok { background: #FF2D5515; color: #FF2D55; }
+.signal-badge.google { background: #34C75915; color: #34C759; }
+.signal-badge.multi { background: #AF52DE15; color: #AF52DE; }
+.signal-badge.sd-deep-blue { background: #007AFF15; color: #007AFF; font-weight: 700; }
+.signal-badge.sd-balanced { background: #8e8e9315; color: #8e8e93; }
+.signal-badge.sd-red-ocean { background: #FF3B3015; color: #FF3B30; }
+.signal-badge.div-up { background: #34C75915; color: #34C759; }
+.signal-badge.div-down { background: #FF3B3015; color: #FF3B30; }
+
+/* Score Badge */
+.score-badge {
+    padding: 4px 12px; border-radius: 10px;
+    font-size: 14px; font-weight: 700;
+    white-space: nowrap; flex-shrink: 0;
+}
+.score-badge.score-hot { background: #FF2D5515; color: #FF2D55; }
+.score-badge.score-high { background: #FF950015; color: #FF9500; }
+.score-badge.score-mid { background: #007AFF15; color: #007AFF; }
+.score-badge.score-low { background: #f0f0f5; color: #8e8e93; }
+.score-label {
+    font-size: 12px; font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+.score-detail {
+    font-size: 11px; color: var(--text-secondary);
+    background: #f8f8fa; padding: 6px 10px;
+    border-radius: 8px; line-height: 1.8;
+    display: -webkit-box; -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.product-image {
+    margin: 8px 0;
+    text-align: center;
+    cursor: pointer;
+}
+.product-image img {
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+.product-image img:hover {
+    transform: scale(1.02);
+}
+.img-placeholder {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f7;
+    border-radius: 8px;
+    color: #8e8e93;
+    font-size: 28px;
+}
+.img-placeholder small {
+    font-size: 11px;
+    margin-top: 4px;
+    color: #aeaeb2;
+}
+
+.product-name {
+    font-size: 15px; font-weight: 600; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+}
+.product-name a { color: var(--text); text-decoration: none; }
+.product-name a:hover { color: #007AFF; }
+
+.product-meta {
+    display: flex; gap: 16px; font-size: 13px;
+    color: var(--text-secondary);
+}
+.product-meta span { white-space: nowrap; }
+
+/* Profit Bar */
+.profit-section { display: flex; align-items: center; gap: 10px; }
+.profit-bar-bg {
+    flex: 1; height: 8px; background: #e5e5ea;
+    border-radius: 4px; overflow: hidden;
+}
+.profit-bar {
+    height: 100%; border-radius: 4px;
+    transition: width 0.3s;
+}
+.profit-text { font-size: 14px; font-weight: 700; white-space: nowrap; }
+.profit-text.high { color: #34C759; }
+.profit-text.mid { color: #FF9500; }
+.profit-text.low { color: #FF3B30; }
+
+/* Cost Breakdown */
+.cost-toggle {
+    font-size: 12px; color: #007AFF; cursor: pointer;
+    border: none; background: #f0f4ff; padding: 4px 10px;
+    border-radius: 8px; transition: background 0.2s;
+}
+.cost-toggle:hover { background: #dce5ff; }
+.cost-detail {
+    display: none; font-size: 12px; color: var(--text-secondary);
+    background: #f5f5f7; padding: 10px 12px; border-radius: 8px;
+    line-height: 1.8; margin-top: 4px;
+    border-left: 3px solid #007AFF;
+}
+.cost-detail.show { display: block; }
+
+/* Status Buttons */
+.status-btns {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-top: auto; padding-top: 10px;
+    border-top: 1px solid var(--border);
+}
+.status-btn {
+    padding: 5px 10px; border: 2px solid var(--s-color, #8e8e93);
+    border-radius: 10px; background: transparent;
+    color: var(--s-color, #8e8e93); font-size: 11px;
+    font-weight: 600; cursor: pointer; transition: all 0.15s;
+}
+.status-btn:hover, .status-btn.active {
+    background: var(--s-color, #8e8e93);
+    color: white;
+}
+
+/* Signal Confidence */
+.signal-confidence {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 10px; border-radius: 8px;
+    font-size: 11px; font-weight: 700;
+}
+.signal-confidence.strong { background: #FF2D5515; color: #FF2D55; }
+.signal-confidence.medium { background: #FF950015; color: #FF9500; }
+.signal-confidence.weak { background: #FFCC0015; color: #998500; }
+.signal-confidence.none { background: #f0f0f5; color: #8e8e93; }
+
+/* Source Button */
+.btn-source {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 5px 12px; border: 2px solid #FF6A00;
+    border-radius: 10px; background: transparent;
+    color: #FF6A00; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s; text-decoration: none;
+}
+.btn-source:hover { background: #FF6A00; color: white; }
+
+/* Sourcing Tiers */
+.sourcing-tiers {
+    display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;
+}
+.tier-chip {
+    padding: 3px 8px; border-radius: 6px;
+    font-size: 11px; background: #f5f5f7;
+    color: var(--text-secondary);
+}
+.tier-chip .tier-label { font-weight: 700; }
+.tier-chip .tier-margin { color: #34C759; font-weight: 600; }
+.tier-chip .tier-margin.mid { color: #FF9500; }
+.tier-chip .tier-margin.low { color: #FF3B30; }
+
+/* Empty State */
+.empty-state {
+    text-align: center; padding: 60px 20px;
+    color: var(--text-secondary);
+}
+.empty-icon { font-size: 48px; margin-bottom: 12px; }
+.empty-hint { font-size: 13px; margin-top: 8px; }
+
+/* Gap Opportunity Cards */
+.gap-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px;
+    border-left: 4px solid #5856D6;
+    display: flex; flex-direction: column; gap: 10px;
+}
+.gap-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+.gap-keyword {
+    font-size: 18px; font-weight: 700; color: #5856D6;
+}
+.gap-meta {
+    display: flex; gap: 12px; font-size: 13px; color: var(--text-secondary);
+    flex-wrap: wrap;
+}
+.gap-meta span { white-space: nowrap; }
+.gap-platforms {
+    display: flex; gap: 6px; flex-wrap: wrap;
+}
+.gap-platform {
+    padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
+    text-decoration: none; cursor: pointer; transition: all 0.2s;
+    display: inline-block;
+}
+.gap-platform:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.gap-platform.found { background: #34C75915; color: #34C759; }
+.gap-platform.found:hover { background: #34C75925; }
+.gap-platform.not-found { background: #f0f0f5; color: #8e8e93; }
+.gap-keyword-btns {
+    display: inline-flex; gap: 2px; margin: 2px 0;
+}
+.gap-kw-btn {
+    padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
+    text-decoration: none; cursor: pointer; transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 2px;
+}
+.gap-kw-btn:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.gap-kw-btn.amazon { background: #007AFF15; color: #007AFF; }
+.gap-kw-btn.amazon:hover { background: #007AFF25; }
+.gap-kw-btn.google { background: #FF950015; color: #FF9500; padding: 4px 8px; }
+.gap-kw-btn.google:hover { background: #FF950025; }
+.gap-amazon-supply {
+    padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
+}
+.gap-amazon-supply.none { background: #34C75915; color: #34C759; }
+.gap-amazon-supply.low { background: #FF950015; color: #FF9500; }
+.gap-amazon-supply.medium { background: #FF3B3015; color: #FF3B30; }
+.gap-amazon-supply.high { background: #FF3B3015; color: #FF3B30; }
+.gap-actions {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto;
+    padding-top: 10px; border-top: 1px solid var(--border);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container { padding: 12px; }
+    .header h1 { font-size: 22px; }
+    .product-grid { grid-template-columns: 1fr; }
+    .filter-bar { flex-direction: column; }
+    .search-box { min-width: 100%; }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        
+    <header class="header">
+        <div class="header-top">
+            <h1><svg class="radar-logo" viewBox="0 0 48 48" width="40" height="40">
+        <circle cx="24" cy="24" r="22" fill="none" stroke="#007AFF" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="24" cy="24" r="16" fill="none" stroke="#007AFF" stroke-width="1.2" opacity="0.25"/>
+        <circle cx="24" cy="24" r="10" fill="none" stroke="#007AFF" stroke-width="1" opacity="0.2"/>
+        <line x1="24" y1="24" x2="24" y2="4" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24,24 L24,4 A20,20 0 0,1 40,16 Z" fill="#007AFF" opacity="0.15"/>
+        <circle cx="24" cy="24" r="3" fill="#007AFF"/>
+        <circle cx="32" cy="14" r="2.5" fill="#34C759" opacity="0.8"/>
+        <circle cx="18" cy="12" r="2" fill="#FF9500" opacity="0.7"/>
+        <circle cx="30" cy="28" r="1.8" fill="#34C759" opacity="0.6"/>
+    </svg> 选品雷达 <span class="version">V2</span></h1>
+            <div class="scan-info">2026-06-25 22:34 · 扫描 218 · 通过 2</div>
+            <div class="date-picker" id="datePicker"></div>
+        </div>
+    </header>
+        
+    <nav class="tab-bar">
+        <div class="channel-tabs"><button class="tab" data-channel="new_releases" style="--ch-color:#007AFF">🆕 Amazon新品榜 <span class="tab-count">2</span></button><button class="tab" data-channel="bsr" style="--ch-color:#FF9500">📈 Amazon畅销榜 <span class="tab-count">0</span></button><button class="tab" data-channel="wished" style="--ch-color:#FF6B9D">💝 Amazon心愿榜 <span class="tab-count">0</span></button><button class="tab" data-channel="gifts" style="--ch-color:#AF52DE">🎁 Amazon送礼榜 <span class="tab-count">0</span></button><button class="tab" data-channel="movers_shakers" style="--ch-color:#FF2D55">🚀 Amazon飙升榜 <span class="tab-count">0</span></button><button class="tab" data-channel="tiktok_verified" style="--ch-color:#FF2D55">🎵 TikTok热品 <span class="tab-count">0</span></button><button class="tab" data-channel="hotukdeals" style="--ch-color:#FF3B30">🔥 HotUKDeals <span class="tab-count">0</span></button><button class="tab" data-channel="temu_trending" style="--ch-color:#FF9500">🛒 Temu热销 <span class="tab-count">0</span></button><button class="tab" data-channel="etsy_trending" style="--ch-color:#FF6B9D">🎨 Etsy趋势 <span class="tab-count">0</span></button><button class="tab" data-channel="youtube_review" style="--ch-color:#FF0000">▶️ YouTube种草 <span class="tab-count">0</span></button><button class="tab" data-channel="google_trends" style="--ch-color:#34C759">📊 Google趋势 <span class="tab-count">0</span></button><button class="tab" data-channel="gap_opportunity" style="--ch-color:#5856D6">🎯 缺口机会 <span class="tab-count">0</span></button><button class="tab" data-channel="multi_source" style="--ch-color:#5856D6">🔗 多源验证 <span class="tab-count">0</span></button><button class="tab active" data-channel="all" style="--ch-color:#8e8e93">📋 全部 <span class="tab-count">2</span></button></div>
+        <div class="status-filter"><span class="filter-label">状态:</span><button class="status-tab" data-status="pending" style="--s-color:#8e8e93">待评估</button><button class="status-tab" data-status="supplier" style="--s-color:#007AFF">找供应商</button><button class="status-tab" data-status="sample" style="--s-color:#FF9500">已采样</button><button class="status-tab" data-status="listed" style="--s-color:#34C759">已上架</button><button class="status-tab" data-status="rejected" style="--s-color:#FF3B30">不考虑</button><button class="status-tab active" data-status="all">全部</button></div>
+    </nav>
+        
+    <div class="filter-bar">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 搜索产品名称..." />
+        </div>
+        <div class="filter-group">
+            <label>价格:</label>
+            <select id="filterPrice">
+                <option value="all">全部</option>
+                <option value="5-7">£5-7</option>
+                <option value="7-8.5">£7-8.5</option>
+                <option value="8.5-10">£8.5-10</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>利润率:</label>
+            <select id="filterMargin">
+                <option value="all">全部</option>
+                <option value="30">≥30%</option>
+                <option value="25">≥25%</option>
+                <option value="20">≥20%</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>品类:</label>
+            <select id="filterCategory">
+                <option value="all">全部</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>排序:</label>
+            <select id="sortBy">
+                <option value="score">评分↓</option>
+                <option value="margin">利润率↓</option>
+                <option value="price">价格↑</option>
+                <option value="reviews">评论数↑</option>
+            </select>
+        </div>
+        <button class="btn-export" onclick="exportCSV()">📥 导出CSV</button>
+        <button class="btn-export" onclick="promptForToken()" style="background:#5856d6;margin-left:4px">🔑 设置Token</button>
+        <span id="syncStatus" style="font-size:12px;color:#8e8e93;margin-left:8px"></span>
+    </div>
+        <div class="product-grid" id="productGrid"></div>
+        
+    <div class="empty-state" id="emptyState" style="display:none">
+        <div class="empty-icon">📦</div>
+        <p>没有匹配的产品</p>
+        <p class="empty-hint">尝试调整筛选条件</p>
+    </div>
+    </div>
+    <script>
+const DATA = {"scan_date": "2026-06-25", "scan_time": "22:34", "scan_ts": "2026-06-25_2234", "stats": {"total_scanned": 218, "passed_filter": 2, "rejected": 216, "channels": {"new_releases": 2, "all": 2}, "trend_categories": {}, "supply_demand": {}, "divergences": {"kitchen": {"current_heat": 71, "previous_heat": 64, "heat_change_pct": 10.9, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "cleaning": {"current_heat": 14, "previous_heat": 14, "heat_change_pct": 0.0, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "car": {"current_heat": 58, "previous_heat": 51, "heat_change_pct": 13.7, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "lighting": {"current_heat": 79, "previous_heat": 79, "heat_change_pct": 0.0, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "pets": {"current_heat": 79, "previous_heat": 72, "heat_change_pct": 9.7, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "sports": {"current_heat": 21, "previous_heat": 14, "heat_change_pct": 50.0, "direction": "rising", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "crafts": {"current_heat": 100, "previous_heat": 100, "heat_change_pct": 0.0, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "bedding": {"current_heat": 7, "previous_heat": 7, "heat_change_pct": 0.0, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "beauty": {"current_heat": 36, "previous_heat": 43, "heat_change_pct": -16.3, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "eco": {"current_heat": 65, "previous_heat": 72, "heat_change_pct": -9.7, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "seasonal": {"current_heat": 65, "previous_heat": 58, "heat_change_pct": 12.1, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "garden": {"current_heat": 51, "previous_heat": 21, "heat_change_pct": 142.9, "direction": "rising", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "bathroom": {"current_heat": 21, "previous_heat": 21, "heat_change_pct": 0.0, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "phone": {"current_heat": 72, "previous_heat": 86, "heat_change_pct": -16.3, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "home decor": {"current_heat": 58, "previous_heat": 51, "heat_change_pct": 13.7, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "office": {"current_heat": 29, "previous_heat": 29, "heat_change_pct": 0.0, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "travel": {"current_heat": 14, "previous_heat": 36, "heat_change_pct": -61.1, "direction": "falling", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}, "kitchen_gadgets": {"current_heat": 7, "previous_heat": 7, "heat_change_pct": 0.0, "direction": "stable", "dates": ["2026-06-24_0850", "2026-06-24_1400"]}}, "gap_opportunities": 0}, "products": [{"asin": "B0H1XBVNBM", "name": "Enzeno motorbike cover 245x105x125cm motorcycle cover waterproof outdoor motorbike Windproof Dustproof moped cover with ", "price": 9.99, "reviews": 42, "rating": 4.8, "rank": 20, "category": "Automotive", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "42 reviews, 4.8★", "amazon_url": "https://www.amazon.co.uk/dp/B0H1XBVNBM", "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71gKIDVM6yL._AC_UL300_SR300,200_.jpg", "profit_margin": 0.387, "net_profit": 3.86, "cost_breakdown": {"vat": 1.67, "commission": 1.5, "fba": 1.46, "ads": 0.5, "returns": 0.2, "sourcing": 0.8, "total_cost": 6.13}, "off_season": false, "sd_score": 0, "sd_label": "", "sd_info": {}, "div_score": 0, "div_label": "", "div_info": {}, "signal_level": "none", "signal_label": "⚪ 无信号", "external_sources": [], "internal_sources": ["新品榜"], "score": 72, "score_breakdown": {"🆕 新品榜": 20, "⚪ 无信号": -10, "💧 低竞争": 10, "⭐ 高评分": 5, "🏆 BSR Top50": 10, "💰 超高利润": 12, "📉 无需求信号": -15, "🌴 当季(summer)": 10}, "stars": 2, "is_event": false, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0H3ST2P8M", "name": "Car Windshield Sunshade Umbrella, Foldable 360° Rotatable Bendable Support Rod, UV Heat Blocking Windscreen Sun Shade fo", "price": 9.99, "reviews": 0, "rating": 0, "rank": 21, "category": "Automotive", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews", "amazon_url": "https://www.amazon.co.uk/dp/B0H3ST2P8M", "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61gt8AjNZZL._AC_UL300_SR300,200_.jpg", "profit_margin": 0.387, "net_profit": 3.86, "cost_breakdown": {"vat": 1.67, "commission": 1.5, "fba": 1.46, "ads": 0.5, "returns": 0.2, "sourcing": 0.8, "total_cost": 6.13}, "off_season": false, "sd_score": 0, "sd_label": "", "sd_info": {}, "div_score": 0, "div_label": "", "div_info": {}, "signal_level": "none", "signal_label": "⚪ 无信号", "external_sources": [], "internal_sources": ["新品榜"], "score": 59, "score_breakdown": {"🆕 新品榜": 20, "⚪ 无信号": -10, "⏳ 待验证": -8, "🏆 BSR Top50": 10, "💰 超高利润": 12, "📉 无需求信号": -15, "🌴 当季(summer)": 10, "✨ 新发现": 10}, "stars": 2, "is_event": false, "channel_tags": ["new_releases"], "is_multi": false}], "gaps": [], "trend_summary": {"top_categories": [], "cross_validated": [], "demand_keywords": [], "season": "summer", "sources_scanned": []}, "tiers": [{"label": "低档", "cost": 0.8, "desc": "1688低价+空运"}, {"label": "中档", "cost": 1.2, "desc": "1688均价+空运"}, {"label": "高档", "cost": 1.5, "desc": "品牌供应商+卡航"}], "status": {"B0GLNF9ZRJ": "supplier", "B0GY96VB6S": "rejected", "B0GPWBTRB9": "rejected", "B0H2922WKJ": "rejected", "B0H33RDKBV": "rejected", "B0GRMJCPM3": "rejected", "B0GQPDHGTB": "rejected", "B0GVTCQ4JG": "rejected", "B0GSRPLWXL": "rejected", "B0GKPG6VW5": "rejected", "B074H5296B": "rejected", "B0G8GFSMKK": "rejected"}, "rejected_by_user": {"B0H33SH43X": {"name": "SpirWoRchlan Trophy Style Beer Glass for 2026 World Cup, Large Beer Mug for 2026 Football Match Day Bar Watch Party & Gi", "category": "Sports", "channel": "new_releases", "price": 8.99, "reviews": 1, "rating": 5, "sources": ["Temu热销", "TikTok趋势"], "date": "2026-06-08"}, "B0GRMJCPM3": {"name": "10 Pcs T5 17 57 86 206 Halogen Light Bulb Instrument Cluster 12V 1.2W Automotive Dash Lamp Bulb Car Dashboard Gauge Ligh", "category": "Lighting", "channel": "new_releases", "price": 6.08, "reviews": 0, "rating": 0, "sources": ["TikTok趋势", "Temu热销"], "date": "2026-06-09"}, "B0GVTCQ4JG": {"name": "Yoga Mat Unisex Non-Slip Thick Foam Exercise Mat 10mm with Carry Strap – Lightweight Home Gym Equipment for Yoga, Pilate", "category": "Sports", "channel": "new_releases", "price": 7.99, "reviews": 9, "rating": 4.1, "sources": ["TikTok趋势", "Temu热销"], "date": "2026-06-09"}, "B0GV4WXMY9": {"name": "Seat Buckle Adjustable Seat Accessories 2 Pcs Fixing Strap-12CM", "category": "Automotive", "channel": "new_releases", "price": 7.49, "reviews": 3, "rating": 5, "sources": [], "date": "2026-06-10"}, "B0GWQLB888": {"name": "Huayeex 2 Pack Car Parts Universal|Seat Buckle Adjustable Seat Accessories|Car Seat Buckle Holder|Auto Parts Universal A", "category": "Automotive", "channel": "new_releases", "price": 9.69, "reviews": 3, "rating": 4, "sources": [], "date": "2026-06-10"}, "B0GLGBZXK8": {"name": "2 Pcs Seat Belt Clip,Seatbelt Clips with Checkered Pattern,Seat Belt Stopper,Retainer Locking Clips,Seats Belts Buckle,C", "category": "Automotive", "channel": "new_releases", "price": 6.19, "reviews": 4, "rating": 4.5, "sources": [], "date": "2026-06-11"}, "B0GGZ767HY": {"name": "lyanny Flexible Silicone RGB LED Light Strip, ARGB Light PSU Cable Extension, for Graphics Card GPU Computer Monitor Des", "category": "Lighting", "channel": "new_releases", "price": 8.12, "reviews": 0, "rating": 0, "sources": ["Temu热销", "TikTok趋势", "Etsy趋势"], "date": "2026-06-13"}, "B0GQYZCV1P": {"name": "Maxtonne Car Boot Organiser, Heavy-Duty 600D Oxford Collapsible Storage Box with 3- Compartments & Securing Straps, Fold", "category": "Automotive", "channel": "new_releases", "price": 9.99, "reviews": 25, "rating": 4.8, "sources": [], "date": "2026-06-15"}}, "available_scans": [{"ts": "2026-06-25_2234", "date": "2026-06-25", "time": "22:34", "count": 2, "file": "2026-06-25_2234.json"}, {"ts": "2026-06-24_1400", "date": "2026-06-24", "time": "14:00", "count": 7, "file": "2026-06-24_1400.json"}, {"ts": "2026-06-24_0850", "date": "2026-06-24", "time": "08:50", "count": 5, "file": "2026-06-24_0850.json"}, {"ts": "2026-06-23_1400", "date": "2026-06-23", "time": "14:00", "count": 2, "file": "2026-06-23_1400.json"}, {"ts": "2026-06-23_0850", "date": "2026-06-23", "time": "08:50", "count": 8, "file": "2026-06-23_0850.json"}, {"ts": "2026-06-22_1400", "date": "2026-06-22", "time": "14:00", "count": 8, "file": "2026-06-22_1400.json"}, {"ts": "2026-06-22_0850", "date": "2026-06-22", "time": "08:50", "count": 5, "file": "2026-06-22_0850.json"}, {"ts": "2026-06-21_2230", "date": "2026-06-21", "time": "22:30", "count": 9, "file": "2026-06-21_2230.json"}, {"ts": "2026-06-21_2118", "date": "2026-06-21", "time": "21:18", "count": 10, "file": "2026-06-21_2118.json"}, {"ts": "2026-06-21_1955", "date": "2026-06-21", "time": "19:55", "count": 86, "file": "2026-06-21_1955.json"}, {"ts": "2026-06-21_1657", "date": "2026-06-21", "time": "16:57", "count": 9, "file": "2026-06-21_1657.json"}, {"ts": "2026-06-21_1400", "date": "2026-06-21", "time": "14:00", "count": 0, "file": "2026-06-21_1400.json"}, {"ts": "2026-06-21_0850", "date": "2026-06-21", "time": "08:50", "count": 5, "file": "2026-06-21_0850.json"}, {"ts": "2026-06-20_1400", "date": "2026-06-20", "time": "14:00", "count": 9, "file": "2026-06-20_1400.json"}, {"ts": "2026-06-20_0850", "date": "2026-06-20", "time": "08:50", "count": 4, "file": "2026-06-20_0850.json"}, {"ts": "2026-06-19_1400", "date": "2026-06-19", "time": "14:00", "count": 7, "file": "2026-06-19_1400.json"}, {"ts": "2026-06-19_0850", "date": "2026-06-19", "time": "08:50", "count": 8, "file": "2026-06-19_0850.json"}, {"ts": "2026-06-18_1841", "date": "2026-06-18", "time": "18:41", "count": 79, "file": "2026-06-18_1841.json"}, {"ts": "2026-06-18_1401", "date": "2026-06-18", "time": "14:01", "count": 4, "file": "2026-06-18_1401.json"}, {"ts": "2026-06-18_0850", "date": "2026-06-18", "time": "08:50", "count": 7, "file": "2026-06-18_0850.json"}, {"ts": "2026-06-17_1400", "date": "2026-06-17", "time": "14:00", "count": 4, "file": "2026-06-17_1400.json"}, {"ts": "2026-06-17_0850", "date": "2026-06-17", "time": "08:50", "count": 5, "file": "2026-06-17_0850.json"}, {"ts": "2026-06-16_1412", "date": "2026-06-16", "time": "14:12", "count": 3, "file": "2026-06-16_1412.json"}, {"ts": "2026-06-16_1411", "date": "2026-06-16", "time": "14:11", "count": 4, "file": "2026-06-16_1411.json"}, {"ts": "2026-06-16_1400", "date": "2026-06-16", "time": "14:00", "count": 3, "file": "2026-06-16_1400.json"}, {"ts": "2026-06-16_0850", "date": "2026-06-16", "time": "08:50", "count": 7, "file": "2026-06-16_0850.json"}, {"ts": "2026-06-15_1400", "date": "2026-06-15", "time": "14:00", "count": 7, "file": "2026-06-15_1400.json"}, {"ts": "2026-06-15_0850", "date": "2026-06-15", "time": "08:50", "count": 1, "file": "2026-06-15_0850.json"}, {"ts": "2026-06-14_1414", "date": "2026-06-14", "time": "14:14", "count": 6, "file": "2026-06-14_1414.json"}, {"ts": "2026-06-14_1400", "date": "2026-06-14", "time": "14:00", "count": 5, "file": "2026-06-14_1400.json"}, {"ts": "2026-06-14_0850", "date": "2026-06-14", "time": "08:50", "count": 6, "file": "2026-06-14_0850.json"}, {"ts": "2026-06-13_0850", "date": "2026-06-13", "time": "08:50", "count": 8, "file": "2026-06-13_0850.json"}, {"ts": "2026-06-12_1400", "date": "2026-06-12", "time": "14:00", "count": 5, "file": "2026-06-12_1400.json"}, {"ts": "2026-06-12_0850", "date": "2026-06-12", "time": "08:50", "count": 11, "file": "2026-06-12_0850.json"}, {"ts": "2026-06-11_0850", "date": "2026-06-11", "time": "08:50", "count": 15, "file": "2026-06-11_0850.json"}, {"ts": "2026-06-10_0850", "date": "2026-06-10", "time": "08:50", "count": 15, "file": "2026-06-10_0850.json"}, {"ts": "2026-06-09_1400", "date": "2026-06-09", "time": "14:00", "count": 13, "file": "2026-06-09_1400.json"}, {"ts": "2026-06-09_0908", "date": "2026-06-09", "time": "09:08", "count": 23, "file": "2026-06-09_0908.json"}, {"ts": "2026-06-08_1400", "date": "2026-06-08", "time": "14:00", "count": 16, "file": "2026-06-08_1400.json"}, {"ts": "2026-06-07_1400", "date": "2026-06-07", "time": "14:00", "count": 13, "file": "2026-06-07_1400.json"}, {"ts": "2026-06-06_1559", "date": "2026-06-06", "time": "15:59", "count": 14, "file": "2026-06-06_1559.json"}, {"ts": "2026-06-05_1412", "date": "2026-06-05", "time": "14:12", "count": 31, "file": "2026-06-05_1412.json"}]};
+const CHANNELS = {"new_releases": ["\ud83c\udd95", "Amazon\u65b0\u54c1\u699c", "#007AFF"], "bsr": ["\ud83d\udcc8", "Amazon\u7545\u9500\u699c", "#FF9500"], "wished": ["\ud83d\udc9d", "Amazon\u5fc3\u613f\u699c", "#FF6B9D"], "gifts": ["\ud83c\udf81", "Amazon\u9001\u793c\u699c", "#AF52DE"], "movers_shakers": ["\ud83d\ude80", "Amazon\u98d9\u5347\u699c", "#FF2D55"], "tiktok_verified": ["\ud83c\udfb5", "TikTok\u70ed\u54c1", "#FF2D55"], "hotukdeals": ["\ud83d\udd25", "HotUKDeals", "#FF3B30"], "temu_trending": ["\ud83d\uded2", "Temu\u70ed\u9500", "#FF9500"], "etsy_trending": ["\ud83c\udfa8", "Etsy\u8d8b\u52bf", "#FF6B9D"], "youtube_review": ["\u25b6\ufe0f", "YouTube\u79cd\u8349", "#FF0000"], "google_trends": ["\ud83d\udcca", "Google\u8d8b\u52bf", "#34C759"], "gap_opportunity": ["\ud83c\udfaf", "\u7f3a\u53e3\u673a\u4f1a", "#5856D6"], "multi_source": ["\ud83d\udd17", "\u591a\u6e90\u9a8c\u8bc1", "#5856D6"], "all": ["\ud83d\udccb", "\u5168\u90e8", "#8e8e93"]};
+const STATUS_CONFIG = {"pending": ["\u5f85\u8bc4\u4f30", "#8e8e93"], "supplier": ["\u627e\u4f9b\u5e94\u5546", "#007AFF"], "sample": ["\u5df2\u91c7\u6837", "#FF9500"], "listed": ["\u5df2\u4e0a\u67b6", "#34C759"], "rejected": ["\u4e0d\u8003\u8651", "#FF3B30"]};
+    </script>
+    <script>
+// Data from Python
+let products = DATA.products || [];
+const statusKey = 'productRadar_v2_status';
+const scans = DATA.available_scans || [];
+
+// Check URL parameter for date
+const urlParams = new URLSearchParams(window.location.search);
+const requestedDate = urlParams.get('date');
+
+// If date parameter exists, load that date's data from embedded scans
+if (requestedDate && scans.length > 0) {
+    const targetScan = scans.find(s => s.ts === requestedDate);
+    if (targetScan && targetScan.ts !== DATA.scan_ts) {
+        const jsonFile = 'data/channels/' + targetScan.file;
+        fetch(jsonFile)
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load');
+                return response.json();
+            })
+            .then(newData => {
+                // Update DATA and products reference
+                Object.assign(DATA, newData);
+                products = newData.products || [];
+                DATA.products = products;
+                DATA.stats = newData.stats || {};
+                DATA.gaps = newData.gaps || [];
+                DATA.trend_summary = newData.trend_summary || {};
+                // Update header stats
+                updateHeaderStats();
+                // Re-render
+                renderProducts();
+            })
+            .catch(err => {
+                console.error('Failed to load date data:', err);
+            });
+    }
+}
+
+function updateHeaderStats() {
+    const stats = DATA.stats || {};
+    const total = stats.total_scanned || 0;
+    const passed = products.length;
+    const header = document.querySelector('.banner');
+    if (header) {
+        const subtitle = header.querySelector('.subtitle') || header.querySelectorAll('div')[1];
+        if (subtitle) subtitle.textContent = `${DATA.scan_date} ${DATA.scan_time} · 扫描 ${total} · 通过 ${passed}`;
+    }
+    // Update tab counts
+    const gapCount = (DATA.gaps || []).length;
+    document.querySelectorAll('.tab').forEach(tab => {
+        const ch = tab.dataset.channel;
+        let cnt = 0;
+        if (ch === 'all') cnt = products.length;
+        else if (ch === 'gap_opportunity') cnt = gapCount;
+        else products.forEach(p => {
+            const tags = p.channel_tags || [p.channel];
+            if (tags.includes(ch)) cnt++;
+        });
+        const badge = tab.querySelector('.tab-count') || tab;
+        badge.textContent = badge.textContent.replace(/\d+/, cnt);
+    });
+}
+
+// Date picker
+if (scans.length > 1) {
+    const picker = document.getElementById('datePicker');
+    const currentTs = requestedDate || DATA.scan_ts || '';
+    let html = '<label>📅 扫描日期:</label><select id="dateSelect" onchange="switchDate(this.value)">';
+    scans.forEach(s => {
+        const sel = s.ts === currentTs ? ' selected' : '';
+        html += `<option value="${s.file}"${sel}>${s.date} ${s.time} (${s.count}个)</option>`;
+    });
+    html += '</select>';
+    picker.innerHTML = html;
+}
+function switchDate(file) {
+    // Navigate to v2.html with date parameter
+    const base = file.replace('.json', '');
+    window.location.href = 'v2.html?date=' + encodeURIComponent(base);
+}
+
+// Load status: merge server-side (from status.json) with localStorage (local overrides)
+function loadStatus() {
+    let server = {};
+    try { server = DATA.status || {}; } catch {}
+    let local = {};
+    try { local = JSON.parse(localStorage.getItem(statusKey) || '{}'); } catch {}
+    return {...server, ...local};
+}
+function saveStatus(status) {
+    localStorage.setItem(statusKey, JSON.stringify(status));
+    scheduleSyncToGitHub(status);
+}
+
+// Auto-sync to GitHub (debounced - waits 3s after last change)
+let syncTimer = null;
+let syncPending = false;
+function scheduleSyncToGitHub(status) {
+    if (syncTimer) clearTimeout(syncTimer);
+    syncTimer = setTimeout(() => syncToGitHub(status), 3000);
+    document.getElementById('syncStatus').textContent = '⏳ 待同步...';
+}
+
+// Token management
+function getGitHubToken() {
+    // Reconstruct token from split parts if available
+    const embedded = (DATA._ghtk_p1 || '') + (DATA._ghtk_p2 || '');
+    return localStorage.getItem('github_token') || embedded || '';
+}
+function setGitHubToken(token) {
+    localStorage.setItem('github_token', token);
+    alert('Token已保存到浏览器');
+}
+function promptForToken() {
+    // If embedded token exists, use it silently
+    const embedded = (DATA._ghtk_p1 || '') + (DATA._ghtk_p2 || '');
+    if (embedded) {
+        setGitHubToken(embedded);
+        return embedded;
+    }
+    const token = prompt('请输入GitHub Token (仅需public_repo权限):');
+    if (token) {
+        setGitHubToken(token);
+    }
+    return token;
+}
+
+async function syncToGitHub(status) {
+    let token = getGitHubToken();
+    if (!token) {
+        token = promptForToken();
+        if (!token) {
+            document.getElementById('syncStatus').textContent = '⚠️ 未配置token';
+            return;
+        }
+    }
+    const el = document.getElementById('syncStatus');
+    el.textContent = '☁️ 同步中...';
+    el.style.color = '#FF9500';
+
+    try {
+        // Trigger GitHub Actions workflow for each status change
+        const results = [];
+        for (const [asin, newStatus] of Object.entries(status)) {
+            const apiUrl = 'https://api.github.com/repos/liyuhong168/product-radar/actions/workflows/update-status.yml/dispatches';
+            const res = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ref: 'main',
+                    inputs: { asin, status: newStatus }
+                }),
+            });
+            results.push({ asin, ok: res.ok, status: res.status });
+        }
+
+        const allOk = results.every(r => r.ok);
+        if (allOk) {
+            el.textContent = '✅ 已提交同步';
+            el.style.color = '#34C759';
+            // Update local DATA
+            DATA.status = {...DATA.status, ...status};
+        } else {
+            const failed = results.filter(r => !r.ok);
+            el.textContent = `❌ 同步失败 (${failed[0].status})`;
+            el.style.color = '#FF3B30';
+        }
+    } catch(e) {
+        el.textContent = `❌ 网络错误`;
+        el.style.color = '#FF3B30';
+    }
+    setTimeout(() => { el.textContent = ''; }, 5000);
+
+    // Also sync rejected products with details
+    syncRejectedToGitHub(token);
+}
+
+// Sync rejected products (with details) to GitHub repo for pattern analysis
+async function syncRejectedToGitHub(token) {
+    if (!token) return;
+    let rejected = {};
+    try { rejected = JSON.parse(localStorage.getItem('rejected_products') || '{}'); } catch {}
+    if (Object.keys(rejected).length === 0) return;
+
+    try {
+        const repo = 'liyuhong168/product-radar';
+        const filePath = 'rejected_by_user.json';
+        const apiUrl = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+
+        // Get existing file (if any) to merge
+        let existingData = {};
+        let sha = null;
+        try {
+            const res = await fetch(apiUrl, {
+                headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                sha = data.sha;
+                existingData = JSON.parse(atob(data.content));
+            }
+        } catch {}
+
+        // Merge: existing + new rejected (local wins)
+        const merged = {...existingData, ...rejected};
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(merged, null, 2))));
+
+        await fetch(apiUrl, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${token}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: `sync rejected products (${Object.keys(merged).length} items)`,
+                content: content,
+                sha: sha || undefined,
+            }),
+        });
+    } catch {}
+}
+
+// Tab switching
+let currentChannel = 'all';
+let currentStatus = 'all';
+
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentChannel = tab.dataset.channel;
+        renderProducts();
+    });
+});
+
+document.querySelectorAll('.status-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentStatus = tab.dataset.status;
+        renderProducts();
+    });
+});
+
+// Filters
+document.getElementById('searchInput').addEventListener('input', renderProducts);
+document.getElementById('filterPrice').addEventListener('change', renderProducts);
+document.getElementById('filterMargin').addEventListener('change', renderProducts);
+document.getElementById('filterCategory').addEventListener('change', renderProducts);
+document.getElementById('sortBy').addEventListener('change', renderProducts);
+
+// Populate category filter
+const categories = [...new Set(products.map(p => p.category).filter(Boolean))].sort();
+const catSelect = document.getElementById('filterCategory');
+categories.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c; opt.textContent = c;
+    catSelect.appendChild(opt);
+});
+
+// Mark status
+function markStatus(asin, status) {
+    const s = loadStatus();
+    if (s[asin] === status) { delete s[asin]; } // toggle off
+    else {
+        s[asin] = status;
+        // Track rejected products with details for pattern analysis
+        if (status === 'rejected') {
+            const p = products.find(x => x.asin === asin);
+            if (p) {
+                let rejected = {};
+                try { rejected = JSON.parse(localStorage.getItem('rejected_products') || '{}'); } catch {}
+                rejected[asin] = {
+                    name: p.name,
+                    category: p.category || '',
+                    channel: p.channel || '',
+                    price: p.price,
+                    reviews: p.reviews,
+                    rating: p.rating,
+                    sources: p.sources || [],
+                    date: new Date().toISOString().slice(0,10)
+                };
+                localStorage.setItem('rejected_products', JSON.stringify(rejected));
+            }
+        }
+    }
+    saveStatus(s);
+    renderProducts();
+}
+
+// Toggle cost detail
+function toggleCost(asin) {
+    const el = document.getElementById('cost-' + asin);
+    el.classList.toggle('show');
+}
+
+// Get filtered products
+function getFiltered() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const priceRange = document.getElementById('filterPrice').value;
+    const minMargin = parseFloat(document.getElementById('filterMargin').value) || 0;
+    const category = document.getElementById('filterCategory').value;
+    const status = loadStatus();
+
+    // Also load server-side rejected list (from rejected_by_user.json)
+    const serverRejected = DATA.rejected_by_user || {};
+
+    const filtered = products.filter(p => {
+        // Channel filter - use channel_tags array instead of single channel
+        if (currentChannel !== 'all') {
+            const tags = p.channel_tags || [p.channel];
+            if (!tags.includes(currentChannel)) return false;
+        }
+
+        // Status filter
+        if (currentStatus !== 'all') {
+            const ps = status[p.asin] || 'pending';
+            if (ps !== currentStatus) return false;
+        }
+
+        // Hide rejected products (from localStorage OR server-side rejected_by_user.json)
+        if (currentStatus === 'all') {
+            const ps = status[p.asin] || 'pending';
+            if (ps === 'rejected') return false;
+            if (serverRejected[p.asin]) return false;
+        }
+
+        // Search
+        if (search && !p.name.toLowerCase().includes(search)) return false;
+
+        // Price
+        if (priceRange !== 'all') {
+            const [min, max] = priceRange.split('-').map(Number);
+            if (p.price < min || p.price > max) return false;
+        }
+
+        // Margin
+        if (minMargin && (p.profit_margin * 100) < minMargin) return false;
+
+        // Category
+        if (category !== 'all' && p.category !== category) return false;
+
+        return true;
+    });
+
+    // Sort
+    const sortBy = document.getElementById('sortBy').value;
+    filtered.sort((a, b) => {
+        switch(sortBy) {
+            case 'score': return (b.score || 50) - (a.score || 50);
+            case 'margin': return (b.profit_margin || 0) - (a.profit_margin || 0);
+            case 'price': return (a.price || 0) - (b.price || 0);
+            case 'reviews': return (a.reviews || 0) - (b.reviews || 0);
+            default: return (b.score || 50) - (a.score || 50);
+        }
+    });
+
+    return filtered;
+}
+
+// Render products
+function renderProducts() {
+    const grid = document.getElementById('productGrid');
+    const filtered = getFiltered();
+    const status = loadStatus();
+
+    // Gap opportunity mode
+    if (currentChannel === 'gap_opportunity') {
+        renderGaps(grid);
+        return;
+    }
+
+    const isEmpty = filtered.length === 0;
+
+    document.getElementById('emptyState').style.display = isEmpty ? 'block' : 'none';
+    grid.style.display = isEmpty ? 'none' : 'grid';
+
+    // Update tab counts using channel_tags
+    const gapCount = (DATA.gaps || []).length;
+    document.querySelectorAll('.tab').forEach(tab => {
+        const ch = tab.dataset.channel;
+        let cnt = 0;
+        if (ch === 'all') {
+            cnt = products.length;
+        } else if (ch === 'gap_opportunity') {
+            cnt = gapCount;
+        } else {
+            products.forEach(p => {
+                const tags = p.channel_tags || [p.channel];
+                if (tags.includes(ch)) cnt++;
+            });
+        }
+        tab.querySelector('.tab-count').textContent = cnt;
+    });
+
+    grid.innerHTML = filtered.map(p => {
+        const s = status[p.asin] || 'pending';
+        const margin = (p.profit_margin * 100).toFixed(1);
+        const marginClass = margin >= 30 ? 'high' : margin >= 20 ? 'mid' : 'low';
+        const marginWidth = Math.min(100, Math.max(5, margin * 2));
+        const ch = CHANNELS[p.channel] || CHANNELS['all'];
+        const bd = p.cost_breakdown || {};
+
+        const signals = [];
+        if (p.sources && p.sources.includes('TikTok趋势')) signals.push('<span class="signal-badge tiktok">TikTok</span>');
+        if (p.google_trend === 'rising') signals.push('<span class="signal-badge google">Google↑</span>');
+
+        // Signal confidence (replaces old multi-source badge)
+        const sigLevel = p.signal_level || 'none';
+        const sigLabel = p.signal_label || '⚪ 无信号';
+        const extSrcs = (p.external_sources || []).join('+');
+        const confidenceHtml = `<span class="signal-confidence ${sigLevel}" title="外部信号: ${extSrcs || '无'}">${sigLabel}</span>`;
+
+        // Supply-Demand badge
+        const sdLabel = p.sd_label || '';
+        const sdScore = p.sd_score || 0;
+        let sdHtml = '';
+        if (sdLabel) {
+            const sdClass = sdScore >= 10 ? 'deep-blue' : sdScore >= 0 ? 'balanced' : 'red-ocean';
+            sdHtml = `<span class="signal-badge sd-${sdClass}">${sdLabel}</span>`;
+        }
+
+        // Trend Divergence badge
+        const divLabel = p.div_label || '';
+        const divScore = p.div_score || 0;
+        let divHtml = '';
+        if (divLabel) {
+            const divClass = divScore > 0 ? 'div-up' : divScore < 0 ? 'div-down' : '';
+            divHtml = `<span class="signal-badge ${divClass}">${divLabel}</span>`;
+        }
+
+        // 3-tier sourcing profit estimates
+        const tiers = DATA.tiers || [];
+        let tiersHtml = '';
+        if (tiers.length > 0 && bd.vat !== undefined) {
+            const tierParts = tiers.map(t => {
+                const tierCost = bd.vat + bd.commission + bd.fba + bd.ads + bd.returns + t.cost;
+                const tierNet = p.price - tierCost;
+                const tierMargin = (tierNet / p.price * 100).toFixed(1);
+                const mClass = tierMargin >= 25 ? '' : tierMargin >= 20 ? ' mid' : ' low';
+                return `<span class="tier-chip"><span class="tier-label">${t.label}</span> £${t.cost} → <span class="tier-margin${mClass}">${tierMargin}%</span></span>`;
+            }).join('');
+            tiersHtml = `<div class="sourcing-tiers">${tierParts}</div>`;
+        }
+
+        // Score display - cap at 99 for visual balance
+        const score = p.score || 30;
+        const displayScore = score > 99 ? '99+' : score;
+        const stars = p.stars || 1;
+        const starStr = '⭐'.repeat(stars);
+        let scoreClass = 'low';
+        let scoreLabel = '💤 优先级低';
+        if (score >= 100) { scoreClass = 'hot'; scoreLabel = '🔥 强烈推荐'; }
+        else if (score >= 80) { scoreClass = 'high'; scoreLabel = '⭐ 值得关注'; }
+        else if (score >= 60) { scoreClass = 'mid'; scoreLabel = '👍 可以考虑'; }
+        else if (score >= 40) { scoreClass = 'low'; scoreLabel = '👀 待观察'; }
+
+        const scoreBreakdown = p.score_breakdown ? Object.entries(p.score_breakdown).map(([k,v]) => `+${v} ${k}`).join(' | ') : '';
+
+        const statusBtns = Object.entries(STATUS_CONFIG).map(([sid, [slabel, scolor]]) => {
+            const active = s === sid ? ' active' : '';
+            return `<button class="status-btn${active}" style="--s-color:${scolor}" onclick="markStatus('${p.asin}','${sid}')">${slabel}</button>`;
+        }).join('');
+
+        const costLine = bd.vat !== undefined ?
+            `VAT £${bd.vat} + 佣金 £${bd.commission} + FBA £${bd.fba} + 广告 £${bd.ads} + 退货 £${bd.returns} + 采购 £${bd.sourcing}` : '';
+
+        return `
+        <div class="product-card" data-status="${s}" data-asin="${p.asin}">
+            <div class="card-header">
+                <span class="channel-badge" style="background:${ch[2]}">${ch[0]} ${ch[1]}</span>
+                <span class="score-badge score-${scoreClass}" title="${scoreBreakdown}">${displayScore}分 ${starStr}</span>
+            </div>
+            <div class="product-image" onclick="window.open('${p.amazon_url}', '_blank')">
+                ${p.image_url ? `<img src="${p.image_url}" alt="${escHtml(p.name)}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷</div>'">` : `<div class="img-placeholder">📷<br><small>下次扫描显示图片</small></div>`}
+            </div>
+            <div class="product-name">
+                <a href="${p.amazon_url}" target="_blank" rel="noopener">${escHtml(p.name)}</a>
+            </div>
+            <div class="product-meta">
+                <span>💷 £${p.price.toFixed(2)}</span>
+                <span>⭐ ${p.rating || '-'}★</span>
+                <span>💬 ${p.reviews || 0}</span>
+                <span>📁 ${p.category || '-'}</span>
+            </div>
+            <div class="signal-badges">${signals.join('')}</div>
+            <div class="profit-section">
+                <div class="profit-bar-bg">
+                    <div class="profit-bar" style="width:${marginWidth}%;background:${margin >= 30 ? '#34C759' : margin >= 20 ? '#FF9500' : '#FF3B30'}"></div>
+                </div>
+                <span class="profit-text ${marginClass}">${margin}% (£${p.net_profit.toFixed(2)})</span>
+            </div>
+            ${costLine ? `<button class="cost-toggle" onclick="toggleCost('${p.asin}')">📋 成本明细 ▾</button>
+            <div class="cost-detail" id="cost-${p.asin}">${costLine}<br>总计: £${bd.total_cost} · 净利: £${p.net_profit.toFixed(2)}</div>` : ''}
+            ${tiersHtml}
+            <div class="status-btns">${statusBtns}</div>
+        </div>`;
+    }).join('');
+}
+
+function escHtml(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+}
+
+// Render gap opportunities
+function renderGaps(grid) {
+    const gaps = DATA.gaps || [];
+    const isEmpty = gaps.length === 0;
+    document.getElementById('emptyState').style.display = isEmpty ? 'block' : 'none';
+    grid.style.display = isEmpty ? 'none' : 'grid';
+
+    if (isEmpty) { grid.innerHTML = ''; return; }
+
+    const levelLabels = {strong: '🟢 强缺口', moderate: '🟡 中等缺口', weak: '🟠 弱缺口'};
+    const levelColors = {strong: '#34C759', moderate: '#FF9500', weak: '#FF9500'};
+
+    grid.innerHTML = gaps.map(g => {
+        const level = g.gap_level || 'weak';
+        const label = levelLabels[level] || level;
+        const color = levelColors[level] || '#8e8e93';
+        const cv = g.is_cross_validated ? `<span class="signal-badge multi">🔗 ${g.cross_sources}源验证</span>` : '';
+        const sdLabel = g.sd_info ? g.sd_info.label : '';
+
+        const suggestions = (g.suggestions || []).slice(0, 5);
+        const suggestHtml = suggestions.map((s, i) => {
+            const amazonUrl = `https://www.amazon.co.uk/s?k=${encodeURIComponent(s)}&rh=p_36:${encodeURIComponent('599-1000')}`;
+            const googleUrl = `https://trends.google.com/trends/explore?q=${encodeURIComponent(s)}&geo=GB`;
+            return `<span class="gap-keyword-btns">
+                <a class="gap-kw-btn amazon" href="${amazonUrl}" target="_blank" rel="noopener" title="Amazon: ${escHtml(s)}">🛒 ${escHtml(s)}</a>
+                <a class="gap-kw-btn google" href="${googleUrl}" target="_blank" rel="noopener" title="Google Trends: ${escHtml(s)}">📈</a>
+            </span>`;
+        }).join('');
+
+        return `
+        <div class="gap-card" style="border-left-color:${color}">
+            <div class="gap-keyword">🎯 ${escHtml(g.category)}</div>
+            <div class="gap-meta">
+                <span style="color:${color};font-weight:700">${label}</span>
+                <span>📊 Heat: ${g.heat}</span>
+                <span>🏆 Score: ${g.score}</span>
+                ${cv}
+                ${sdLabel ? `<span>${sdLabel}</span>` : ''}
+            </div>
+            <div style="font-size:13px;color:#6e6e73">
+                Amazon: ${g.amazon_count} products / ${g.amazon_reviews} reviews
+                ${g.evidence && g.evidence.length > 0 ? `<br>Trend: ${g.evidence.slice(0,3).join(', ')}` : ''}
+            </div>
+            <div style="font-size:12px;font-weight:600;color:#8e8e93;margin-top:4px">📦 Suggestions:</div>
+            <div class="gap-platforms">${suggestHtml}</div>
+        </div>`;
+    }).join('');
+}
+
+// Export CSV
+function exportCSV() {
+    const status = loadStatus();
+    const rows = [['ASIN','产品名','价格','利润率','净利','品类','渠道','状态','链接']];
+    products.forEach(p => {
+        const s = status[p.asin] || 'pending';
+        rows.push([
+            p.asin, `"${p.name}"`, p.price,
+            (p.profit_margin*100).toFixed(1)+'%',
+            p.net_profit.toFixed(2), p.category || '',
+            p.channel_name || p.channel,
+            STATUS_CONFIG[s] ? STATUS_CONFIG[s][0] : s,
+            p.amazon_url
+        ]);
+    });
+    const csv = rows.map(r => r.join(',')).join('\n');
+    const blob = new Blob(['\uFEFF' + csv], {type:'text/csv;charset=utf-8'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `选品雷达_${DATA.scan_date}.csv`;
+    a.click();
+}
+
+// Status summary
+function updateStatusSummary() {
+    const status = loadStatus();
+    const counts = {};
+    Object.values(status).forEach(s => { counts[s] = (counts[s]||0) + 1; });
+    // Could render a summary bar - placeholder for now
+}
+
+// Initial render
+renderProducts();
+</script>
+</body>
+</html>
