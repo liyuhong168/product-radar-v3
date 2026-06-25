@@ -417,6 +417,10 @@ let DISC_DATES = [];
 let curDate = '';
 let curTab = 'discovery';
 
+// V3: Utility functions
+function esc(s){const d=document.createElement('div');d.textContent=s||'';return d.innerHTML}
+function getSt(){try{const local=JSON.parse(localStorage.getItem(SK)||'{}');return Object.assign({},PROD_STATUS,local)}catch(e){return Object.assign({},PROD_STATUS)}}
+function saveSt(a,s){const t=getSt();if(s==='pending')delete t[a];else t[a]=s;localStorage.setItem(SK,JSON.stringify(t))}
 
 // ===== Date Picker =====
 const picker = document.getElementById('datePicker');
