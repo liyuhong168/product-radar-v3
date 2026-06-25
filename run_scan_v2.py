@@ -387,12 +387,12 @@ def main():
     print(f"{'='*60}\n", file=sys.stderr)
 
     # 1. Amazon (New/BSR/Wished/Gifts)
-    print("[1/7] Amazon UK (New+BSR+Wished+Gifts)...", file=sys.stderr)
+    print("[1/9] Amazon UK (New+BSR+Wished+Gifts)...", file=sys.stderr)
     amazon_products = fetch_amazon(max_per_channel_type=18)  # 扫描全部品类
     print(f"  Amazon: {len(amazon_products)} products", file=sys.stderr)
 
     # 2. AnySearch trends (TikTok+HotUKDeals+Temu+Etsy+YouTube+Google+Reddit)
-    print("\n[2/7] AnySearch 多源趋势分析...", file=sys.stderr)
+    print("\n[2/9] AnySearch 多源趋势分析...", file=sys.stderr)
     trend_data, trend_raw = fetch_trend_signals()
     top_cats = sorted(trend_data.get("category_scores", {}).items(), key=lambda x: -x[1])[:6]
     print(f"  Top categories:", file=sys.stderr)
@@ -401,25 +401,25 @@ def main():
         print(f"    [{cv}] {cat}: {score}/100", file=sys.stderr)
 
     # 3. TikTok keyword matching
-    print("\n[3/7] TikTok UK...", file=sys.stderr)
+    print("\n[3/9] TikTok UK...", file=sys.stderr)
     tiktok_products = fetch_tiktok()
     tiktok_matched = match_keywords_to_products(tiktok_products, amazon_products, "TikTok趋势")
     print(f"  TikTok → {len(tiktok_matched)} products", file=sys.stderr)
 
     # 4. Google Trends
-    print("\n[4/7] Google Trends UK...", file=sys.stderr)
+    print("\n[4/9] Google Trends UK...", file=sys.stderr)
     gtrends_text = fetch_demand_signals()
     amazon_products = enrich_google_trends(amazon_products, gtrends_text)
     gt_count = sum(1 for p in amazon_products if p.get("google_trend") == "rising")
     print(f"  Google Trends → {gt_count} products", file=sys.stderr)
 
     # 5. Reddit
-    print("\n[5/7] Reddit demand...", file=sys.stderr)
+    print("\n[5/9] Reddit demand...", file=sys.stderr)
     reddit_text = fetch_reddit()
     amazon_products = enrich_reddit(amazon_products, reddit_text)
 
     # 6. Enrich with AnySearch source signals
-    print("\n[6/7] Enriching with trend signals...", file=sys.stderr)
+    print("\n[6/9] Enriching with trend signals...", file=sys.stderr)
     amazon_products = enrich_from_trend_data(amazon_products, trend_data)
     for src_tag in ["HotUKDeals热帖", "Temu热销", "Etsy趋势", "YouTube种草"]:
         cnt = sum(1 for p in amazon_products if src_tag in p.get("sources", []))
@@ -430,7 +430,7 @@ def main():
     print(f"  After dedup: {len(products)}", file=sys.stderr)
 
     # 8. Scan pending keywords (V3 three-source linkage)
-    print("\n[8] Scanning pending keywords...", file=sys.stderr)
+    print("\n[7/9] Scanning pending keywords...", file=sys.stderr)
     pending_data = load_pending()
     kw_to_scan = get_keywords_to_scan(pending_data, max_urgent=5, max_high=10, max_normal=10)
     if kw_to_scan:
@@ -484,14 +484,14 @@ def main():
         print(f"  No pending keywords to scan", file=sys.stderr)
 
     # 9. Filter + Score (renumbered from 7)
-    print("\n[9/9] Filtering & Scoring...", file=sys.stderr)
+    print("\n[8/9] Filtering & Scoring...", file=sys.stderr)
     passed, rejected = filter_products(products, config)
     print(f"  Passed: {len(passed)} | Rejected: {len(rejected)}", file=sys.stderr)
 
     history = load_history(days=7)
 
     # 7b. Market Intelligence (supply-demand + trend divergence)
-    print("\n[7b] Market Intelligence...", file=sys.stderr)
+    print("\n[8b] Market Intelligence...", file=sys.stderr)
     market = analyze_market(products, trend_data, history_days=3)
     sd_ratios = market["sd_ratios"]
     divergences = market["divergences"]
@@ -516,7 +516,7 @@ def main():
         p["div_info"] = div_info
 
     # 7c. Gap Opportunity Detection (category-level gaps)
-    print("\n[7c] Gap Opportunity Detection...", file=sys.stderr)
+    print("\n[8c] Gap Opportunity Detection...", file=sys.stderr)
     gaps = analyze_gaps(trend_data, sd_ratios, products)
     if gaps:
         print(f"  🎯 {len(gaps)} gap opportunities found!", file=sys.stderr)
@@ -526,7 +526,7 @@ def main():
     passed = score_all_products(passed, trend_data=trend_data, history=history)
 
     # 7d. Limit event-based products (avoid single-event domination)
-    print("\n[7d] Event Product Limiting...", file=sys.stderr)
+    print("\n[8d] Event Product Limiting...", file=sys.stderr)
     passed_before = len(passed)
     passed = limit_event_products(passed, max_per_event=2)
     print(f"  Before: {passed_before} → After: {len(passed)}", file=sys.stderr)
@@ -561,6 +561,8 @@ def main():
     for ch, cnt in sorted(channel_counts.items(), key=lambda x: -x[1]):
         print(f"    {ch}: {cnt}", file=sys.stderr)
 
+    # 9. Save & Deploy
+    print("\n[9/9] Saving & Building...", file=sys.stderr)
     # Save (use scan_ts for unique filenames, scan_date for display)
     data = {
         "scan_date": scan_date, "scan_time": scan_time,
