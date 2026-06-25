@@ -12,6 +12,7 @@ sys.path.insert(0, str(BASE))
 
 from scanner import is_forbidden, calc_profit
 from sources.amazon_uk import fetch as fetch_amazon
+from sources.amazon_uk import _parse_amazon_page, _curl_fetch
 from sources.tiktok_shop import fetch as fetch_tiktok
 from sources.google_trends import fetch_demand_signals, extract_trending_keywords
 from sources.reddit_demand import fetch_demand_signals as fetch_reddit
@@ -447,7 +448,13 @@ def main():
             sources = kw_entry.get("sources", [])
             priority = kw_entry["priority"]
             try:
-                results = fetch_amazon(keyword)
+                # Amazon search with keyword
+                search_url = f"https://www.amazon.co.uk/s?k={keyword.replace(' ', '+')}&rh=p_36%3A559-1000"
+                html = _curl_fetch(search_url)
+                if html and len(html) > 5000:
+                    results = _parse_amazon_page(html, "keyword", "search")
+                else:
+                    results = []
                 filtered = []
                 for p in results:
                     try:
