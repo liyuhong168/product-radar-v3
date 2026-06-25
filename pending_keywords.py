@@ -18,13 +18,16 @@ SEA_FREIGHT_LEAD_DAYS = 74
 
 
 def load_pending():
-    """Load pending keywords from file."""
+    """Load pending keywords from file. Auto-creates if missing."""
     if PENDING_FILE.exists():
         try:
             return json.loads(PENDING_FILE.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             pass
-    return {"keywords": [], "stats": {"total_injected": 0, "active": 0, "expired": 0, "stale": 0}, "last_updated": ""}
+    # Create default structure and save
+    default = {"keywords": [], "stats": {"total_injected": 0, "active": 0, "expired": 0, "stale": 0}, "last_updated": datetime.now().isoformat()}
+    save_pending(default)
+    return default
 
 
 def save_pending(data):
