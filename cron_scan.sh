@@ -25,13 +25,8 @@ echo ""
 echo "📅 检查节日截止日..."
 python3 run_festival_check.py 2>&1 || echo "  ⚠️ 节日检查失败（不影响扫描）"
 
-# Run scan (timeout: 7 min)
+# Run scan (timeout: 10 min) - includes build_platform internally
 timeout 600 python3 run_scan_v2.py 2>/dev/null || { echo "❌ 扫描超时或失败"; exit 1; }
-
-# V3: Build platform data (radar.json, discovery.json, etc.)
-echo ""
-echo "🔨 构建前端数据..."
-python3 build_platform.py 2>&1 || echo "  ⚠️ 构建失败（不影响扫描数据）"
 
 # Get latest data file
 LATEST=$(ls -t data/channels/*.json 2>/dev/null | grep -v rejected | grep -v trends | head -1)
