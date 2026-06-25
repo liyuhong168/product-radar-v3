@@ -1,0 +1,27 @@
+name: Deploy Product Radar V3
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Prepare deployment
+        run: |
+          mkdir -p deploy
+          cp output/*.html output/*.json output/*.js deploy/ 2>/dev/null || true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: deploy
+      - id: deployment
+        uses: actions/deploy-pages@v4
