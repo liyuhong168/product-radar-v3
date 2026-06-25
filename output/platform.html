@@ -153,7 +153,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans SC
 .btn-amz:hover{background:#FF6A00;color:#fff}
 .sig-badges{display:flex;gap:4px;flex-wrap:wrap}
 .sig{padding:2px 8px;border-radius:6px;font-size:10px;font-weight:600;background:#f0f0f5;color:var(--muted)}
-.sig.tiktok{background:#FF2D5515;color:var(--pink)}.sig.multi{background:#AF52DE15;color:#AF52DE}.sig.sd{background:#007AFF15;color:var(--blue);font-weight:700}
+.sig.tiktok{background:#FF2D5515;color:var(--pink)}.sig.multi{background:#AF52DE15;color:#AF52DE}.sig.sd{background:#007AFF15;color:var(--blue);font-weight:700}.sig.discovery{background:#AF52DE15;color:#AF52DE}.sig.festival{background:#FF950015;color:#FF9500}
 .st-filter{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .st-filter .lbl{font-size:13px;color:var(--muted);font-weight:600}
 .st-tab{padding:5px 12px;border:2px solid var(--s-c,#8e8e93);border-radius:16px;background:transparent;color:var(--s-c,#8e8e93);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
@@ -268,6 +268,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans SC
   <h1>🎯 选品平台 <span class="ver">V3</span></h1>
   <div class="info">趋势发现（关键词/需求驱动）+ 雷达扫描（产品筛选）+ 选品看板</div>
   <div id="dataFreshness" style="font-size:12px;color:var(--muted);margin-top:4px;display:flex;align-items:center"></div>
+  <div id="keywordStats" style="font-size:11px;color:var(--muted);margin-top:2px;display:flex;gap:12px;flex-wrap:wrap"></div>
 </header>
 
 <!-- <button class="search-trigger" onclick="toggleSearch()">🔍 全局搜索 <kbd>⌘K</kbd></button> -->
@@ -595,11 +596,12 @@ function renderRadar() {
     const url=p.amazon_url||(p.asin?`https://www.amazon.co.uk/dp/${p.asin}`:'#');
     const cb=p.cost_breakdown||{};
     const costH=cb.vat?`<button class="cost-tog" onclick="this.nextElementSibling.classList.toggle('show')">💰 成本明细</button><div class="cost-det">VAT: £${cb.vat?.toFixed(2)||'-'} · 佣金: £${cb.commission?.toFixed(2)||'-'} · FBA: £${cb.fba?.toFixed(2)||'-'}<br>广告: £${cb.ads?.toFixed(2)||'-'} · 退货: £${cb.returns?.toFixed(2)||'-'} · 采购: £${cb.sourcing?.toFixed(2)||'-'}<br><b>总成本: £${cb.total_cost?.toFixed(2)||'-'} · 净利润: £${(p.net_profit||0).toFixed(2)}</b></div>`:'';
-    const sigs=(p.sources||[]).map(s=>{let c='';if(s.includes('TikTok'))c='tiktok';if(s.includes('多源'))c='multi';return`<span class="sig ${c}">${s}</span>`}).join('');
+    const sigs=(p.sources||[]).map(s=>{let c='';if(s.includes('TikTok'))c='tiktok';if(s.includes('多源'))c='multi';if(s.includes('discovery'))c='discovery';if(s.includes('festival'))c='festival';return`<span class="sig ${c}">${s}</span>`}).join('');
     const sd=p.sd_label?`<span class="sig sd">${p.sd_label}</span>`:'';
+    const kwSrc=p.discovery_verified?'<span class="sig" style="background:#AF52DE15;color:#AF52DE">🔍 趋势发现</span>':p.festival_verified?'<span class="sig" style="background:#FF950015;color:#FF9500">📅 节日推荐</span>':'';
     return `<div class="pc" data-status="${st}" data-asin="${p.asin||''}">
       ${badge}
-      <div class="card-hd"><span class="src-badge">📡 雷达</span><div class="sig-badges">${sigs}${sd}</div><span class="score-badge ${scCls}">${sc}分</span></div>
+      <div class="card-hd"><span class="src-badge">📡 雷达</span><div class="sig-badges">${kwSrc}${sigs}${sd}</div><span class="score-badge ${scCls}">${sc}分</span></div>
       ${img}
       <div class="pc-name"><a href="${url}" target="_blank">${esc(p.name)}</a></div>
       <div class="pc-meta"><span>💷 £${(p.price||0).toFixed(2)}</span><span>⭐ ${p.rating||'-'} (${p.reviews||0})</span>${p.first_seen?`<span>发现: ${p.first_seen}</span>`:''}</div>
@@ -879,6 +881,18 @@ async function loadAllData() {
     }
 
     console.log('[V3] Loaded:', radarDates.length, 'radar,', discDates.length, 'discovery,', fest.length, 'festivals');
+
+    // Load keyword stats
+    try {
+      const kwData = await fetch('keywords.json').then(r => r.ok ? r.json() : null).catch(() => null);
+      const kwEl = document.getElementById('keywordStats');
+      if (kwEl && kwData) {
+        kwEl.innerHTML = '<span>🔑 活跃关键词: <b>' + kwData.active + '</b></span>' +
+          (kwData.urgent ? '<span style="color:var(--red)">🔴 紧急: ' + kwData.urgent + '</span>' : '') +
+          (kwData.high ? '<span style="color:var(--orange)">🟠 高优: ' + kwData.high + '</span>' : '') +
+          '<span>📊 发现: ' + kwData.from_discovery + ' | 节日: ' + kwData.from_festival + '</span>';
+      }
+    } catch(e) {}
   } catch(e) {
     console.error('[V3] Load error:', e);
   }
