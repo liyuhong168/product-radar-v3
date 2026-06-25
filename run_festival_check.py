@@ -41,9 +41,81 @@ def load_festivals():
         return []
 
 
+# V3: Preset search keywords for major festivals (higher quality than SKU extraction)
+FESTIVAL_PRESET_KEYWORDS = {
+    "halloween": [
+        "halloween decorations outdoor", "halloween lights solar",
+        "halloween garden ornaments", "halloween window stickers",
+        "halloween party supplies", "halloween skeleton decorations",
+        "halloween pumpkin lights", "halloween wall decor"
+    ],
+    "christmas": [
+        "christmas decorations outdoor", "christmas lights solar",
+        "christmas tree ornaments", "christmas window stickers",
+        "christmas party supplies", "christmas garden decor",
+        "christmas candles", "christmas stocking holders"
+    ],
+    "valentine": [
+        "valentines day decorations", "valentines gifts for her",
+        "valentines party supplies", "valentines candles",
+        "valentines wall decor", "valentines gift set"
+    ],
+    "easter": [
+        "easter decorations", "easter eggs fillable",
+        "easter garden ornaments", "easter party supplies",
+        "easter candles", "easter wreath"
+    ],
+    "new year": [
+        "new year decorations", "new year party supplies",
+        "new year eve decorations", "new year balloons",
+        "new year calendar 2027", "new year string lights"
+    ],
+    "mother": [
+        "mothers day gifts", "mothers day gift set",
+        "mothers day candles", "mothers day decorations",
+        "mothers day photo frame", "mothers day mug"
+    ],
+    "father": [
+        "fathers day gifts", "fathers day gift set",
+        "fathers day mug", "fathers day decorations",
+        "fathers day card", "fathers day tools"
+    ],
+    "summer": [
+        "summer garden decorations", "solar garden lights",
+        "outdoor picnic accessories", "bbq accessories",
+        "beach accessories", "insect repellent outdoor",
+        "mosquito net", "sun shade outdoor"
+    ],
+    "back to school": [
+        "school stationery set", "desk organizer",
+        "pencil case", "lunch box kids",
+        "storage box foldable", "notebook planner"
+    ],
+    "world cup": [
+        "world cup decorations", "world cup flags",
+        "football bunting", "world cup wall chart",
+        "football party supplies", "world cup banner"
+    ],
+}
+
+
+def get_preset_keywords(festival):
+    """Get preset search keywords for a festival based on name matching."""
+    name_lower = (festival.get("name", "") + " " + festival.get("nameEn", "")).lower()
+    presets = set()
+    for trigger, keywords in FESTIVAL_PRESET_KEYWORDS.items():
+        if trigger in name_lower:
+            presets.update(keywords)
+    return list(presets)[:10]
+
+
 def extract_festival_keywords(festival):
     """Extract Amazon search keywords from festival data."""
     keywords = set()
+
+    # 0. Preset keywords (highest quality)
+    presets = get_preset_keywords(festival)
+    keywords.update(presets)
 
     # 1. Festival English name (cleaned)
     name_en = festival.get("nameEn", "")
