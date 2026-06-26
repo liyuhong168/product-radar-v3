@@ -380,6 +380,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans SC
     <button class="btn-export" onclick="exportKanbanCSV()">📥 导出看板</button>
   </div>
   <div class="kanban-board" id="kanbanBoard"></div>
+  <div id="kanbanFestival" style="margin-top:16px"></div>
 </div>
 
 </div>
@@ -499,8 +500,10 @@ function renderDiscovery() {
   if (!insights.length) { list.innerHTML=''; empty.style.display='block'; forecastArea.innerHTML=''; return; }
   empty.style.display='none';
 
-  // Forecast
-  forecastArea.innerHTML = forecast ? `<div class="forecast-card"><div class="forecast-title">🔮 未来趋势预测</div><div class="forecast-text">${esc(forecast)}</div></div>` : '';
+  // Forecast (with encoding fallback)
+  var forecastClean = forecast;
+  if (forecast && /[鏈\u00c0-\u00ff]{2,}/.test(forecast)) forecastClean = ''; // Skip garbled text
+  forecastArea.innerHTML = forecastClean ? `<div class="forecast-card"><div class="forecast-title">🔮 未来趋势预测</div><div class="forecast-text">${esc(forecastClean)}</div></div>` : '';
 
   list.innerHTML = insights.map((ins, idx) => {
     const score = ins.trend_score || 0;
@@ -557,6 +560,18 @@ function renderDiscovery() {
           <a class="btn-search alibaba" href="${aliUrl}" target="_blank">🏭 1688 搜索「${esc(aliKw)}」</a>
           <a class="btn-search google" href="${gtUrl}" target="_blank">📊 Google Trends</a>
         </div>
+        ${(() => {
+          if (typeof FESTIVALS_DATA === 'undefined' || !FESTIVALS_DATA.length) return '';
+          var kw = (ins.keyword || '').toLowerCase();
+          var matched = FESTIVALS_DATA.filter(function(fest) {
+            var name = (fest.name || fest.nameEn || '').toLowerCase();
+            return kw.split(' ').some(function(w) { return w.length > 3 && name.indexOf(w) !== -1; });
+          }).slice(0,3);
+          if (!matched.length) return '';
+          return '<div style="margin-top:8px;padding:8px;background:#eff6ff;border-radius:6px;font-size:12px"><div style="font-weight:600;color:var(--blue);margin-bottom:4px">📅 关联节日</div>' +
+            matched.map(function(f) { return '<div style="display:flex;align-items:center;gap:6px;padding:2px 0"><span>' + (f.icon||'📅') + '</span><span>' + esc(f.name||f.nameEn) + '</span><span style="color:var(--muted);font-size:11px">' + f.date + '</span></div>'; }).join('') +
+            '</div>';
+        })()}
       </div>
     </div>`;
   }).join('');
@@ -623,6 +638,15 @@ function renderRadar() {
         ${Object.entries(STATUS).map(([k,[l,c]])=>`<button class="st-btn ${st===k?'active':''}" style="--s-c:${c}" onclick="setSt('${p.asin}','${k}',this)">${l}</button>`).join('')}
         <a class="btn-amz" href="${url}" target="_blank">🛒 Amazon</a>
       </div>
+      ${st==='listed' ? `<div class="fb-form" style="margin-top:8px;padding:8px;background:#f0fdf4;border-radius:8px;font-size:11px">
+        <div style="font-weight:600;color:var(--green);margin-bottom:4px">📊 销量追踪</div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+          <input type="number" placeholder="月销量" style="width:70px;padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:11px" id="fb-sales-${p.asin}">
+          <input type="number" placeholder="月利润£" style="width:70px;padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:11px" id="fb-profit-${p.asin}">
+          <button onclick="saveOutcome('${p.asin}')" style="padding:3px 8px;background:var(--green);color:#fff;border:none;border-radius:4px;font-size:10px;cursor:pointer">保存</button>
+          ${FEEDBACK_DATA.outcomes && FEEDBACK_DATA.outcomes[p.asin] ? '<span style="color:var(--green)">✓ 已记录: ' + (FEEDBACK_DATA.outcomes[p.asin].monthly_sales||0) + '单/月</span>' : ''}
+        </div>
+      </div>` : ''}
     </div>`;
   }).join('');
 }
@@ -633,6 +657,15 @@ if(!FEEDBACK_DATA)FEEDBACK_DATA={rejected:[],selected:{},outcomes:{}};
 if(s==='rejected'){if(!FEEDBACK_DATA.rejected.includes(asin))FEEDBACK_DATA.rejected.push(asin);delete FEEDBACK_DATA.selected[asin]}
 else{FEEDBACK_DATA.selected[asin]={date:new Date().toISOString().slice(0,10),status:s};FEEDBACK_DATA.rejected=FEEDBACK_DATA.rejected.filter(a=>a!==asin)}
 try{localStorage.setItem('v3_feedback',JSON.stringify(FEEDBACK_DATA))}catch(e){}
+}
+// V3: Save product outcome (sales/profit after listing)
+function saveOutcome(asin) {
+  var sales = parseInt(document.getElementById('fb-sales-' + asin)?.value) || 0;
+  var profit = parseFloat(document.getElementById('fb-profit-' + asin)?.value) || 0;
+  if (!FEEDBACK_DATA.outcomes) FEEDBACK_DATA.outcomes = {};
+  FEEDBACK_DATA.outcomes[asin] = {monthly_sales: sales, monthly_profit: profit, date: new Date().toISOString().slice(0,10)};
+  try { localStorage.setItem('v3_feedback', JSON.stringify(FEEDBACK_DATA)); } catch(e) {}
+  renderRadar();
 }
 
 document.querySelector('.st-filter').addEventListener('click',e=>{const t=e.target.closest('.st-tab');if(!t)return;document.querySelectorAll('.st-tab').forEach(b=>b.classList.remove('active'));t.classList.add('active');radarStatus=t.dataset.status;renderRadar()});
@@ -706,16 +739,88 @@ function renderKanban() {
     }
     const cardsHtml = items.map(item => {
       const scCls = item.score >= 80 ? 'hot' : item.score >= 50 ? 'warm' : 'cool';
-      return `<div class="kanban-card" title="${esc(item.keyword)}">
+      const draggable = item.asin ? 'draggable="true"' : '';
+      const dataAsin = item.asin ? 'data-asin="' + item.asin + '"' : '';
+      return `<div class="kanban-card" title="${esc(item.keyword)}" ${draggable} ${dataAsin} data-from-status="${item.status}">
         <div class="kw">${esc(item.keyword)}</div>
         <div class="meta"><span class="sc ${scCls}">${item.score}分</span><span>${item.date}</span></div>
       </div>`;
     }).join('');
-    return `<div class="kanban-col" data-status="${key}">
+    return `<div class="kanban-col" data-status="${key}" ondragover="event.preventDefault();this.style.background='#f0f4ff'" ondragleave="this.style.background=''" ondrop="kanbanDrop(event,'${key}')">
       <div class="kanban-col-hd"><span class="dot" style="background:${color}"></span>${label}<span class="cnt">${items.length}</span></div>
       <div class="kanban-cards">${cardsHtml || '<div class="kanban-drop">拖拽项目到此处</div>'}</div>
     </div>`;
   }).join('');
+
+  // V3: Festival progress section in kanban
+  var festEl = document.getElementById('kanbanFestival');
+  if (festEl && typeof FESTIVALS_DATA !== 'undefined' && FESTIVALS_DATA.length > 0) {
+    var today = new Date();
+    var upcoming = FESTIVALS_DATA.filter(function(f) {
+      var d = new Date(f.date);
+      var diff = Math.floor((d - today) / 86400000);
+      return diff >= -7 && diff <= 90;
+    }).sort(function(a,b) { return new Date(a.date) - new Date(b.date); }).slice(0,8);
+    if (upcoming.length > 0) {
+      var fh = '<div style="background:var(--card);border-radius:16px;padding:16px;box-shadow:var(--shadow)">';
+      fh += '<div style="font-weight:700;font-size:14px;margin-bottom:12px">📅 近期节日进度</div>';
+      fh += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">';
+      upcoming.forEach(function(f) {
+        var d = new Date(f.date);
+        var diff = Math.floor((d - today) / 86400000);
+        var color = diff <= 7 ? 'var(--red)' : diff <= 30 ? 'var(--orange)' : 'var(--green)';
+        var label = diff < 0 ? '已过' + Math.abs(diff) + '天' : diff === 0 ? '今天!' : diff + '天后';
+        var fst = null;
+        try { var al = JSON.parse(localStorage.getItem('uk_festival_planner_v1') || '{}'); fst = al[f.id]; } catch(e) {}
+        var st = fst ? fst.status || 'none' : 'none';
+        var sl = {none:'未开始',selection:'选品中',ordered:'已下单',arrived:'已到仓',listed:'已上架'};
+        var sc = {none:'#8e8e93',selection:'#007AFF',ordered:'#FF9500',arrived:'#AF52DE',listed:'#34C759'};
+        fh += '<div style="display:flex;align-items:center;gap:10px;padding:10px;background:#f8f8fa;border-radius:10px;border-left:3px solid ' + color + '">';
+        fh += '<span style="font-size:20px">' + (f.icon || '📅') + '</span>';
+        fh += '<div style="flex:1;min-width:0"><div style="font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(f.name || f.nameEn) + '</div>';
+        fh += '<div style="font-size:11px;color:var(--muted)">' + f.date + ' · ' + (f.products || []).length + ' SKUs</div></div>';
+        fh += '<div style="text-align:right"><div style="font-size:12px;font-weight:700;color:' + color + '">' + label + '</div>';
+        fh += '<div style="font-size:10px;padding:2px 6px;border-radius:4px;background:' + sc[st] + '22;color:' + sc[st] + '">' + sl[st] + '</div></div>';
+        fh += '</div>';
+      });
+      fh += '</div></div>';
+      festEl.innerHTML = fh;
+    }
+  }
+}
+
+// V3: Kanban drag-and-drop
+var _draggedAsin = null;
+document.addEventListener('dragstart', function(e) {
+  var card = e.target.closest('.kanban-card');
+  if (card && card.dataset.asin) {
+    _draggedAsin = card.dataset.asin;
+    e.dataTransfer.effectAllowed = 'move';
+    card.style.opacity = '0.5';
+  }
+});
+document.addEventListener('dragend', function(e) {
+  var card = e.target.closest('.kanban-card');
+  if (card) card.style.opacity = '1';
+  _draggedAsin = null;
+});
+function kanbanDrop(e, newStatus) {
+  e.preventDefault();
+  e.currentTarget.style.background = '';
+  if (!_draggedAsin) return;
+  saveSt(_draggedAsin, newStatus);
+  // Update feedback
+  if (typeof FEEDBACK_DATA !== 'undefined') {
+    if (newStatus === 'rejected') {
+      if (!FEEDBACK_DATA.rejected.includes(_draggedAsin)) FEEDBACK_DATA.rejected.push(_draggedAsin);
+      delete FEEDBACK_DATA.selected[_draggedAsin];
+    } else {
+      FEEDBACK_DATA.selected[_draggedAsin] = {date: new Date().toISOString().slice(0,10), status: newStatus};
+      FEEDBACK_DATA.rejected = FEEDBACK_DATA.rejected.filter(a => a !== _draggedAsin);
+    }
+    try { localStorage.setItem('v3_feedback', JSON.stringify(FEEDBACK_DATA)); } catch(ex) {}
+  }
+  renderKanban();
 }
 
 document.getElementById('kanbanSearch')?.addEventListener('input', renderKanban);
