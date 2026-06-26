@@ -448,9 +448,16 @@ def main():
             sources = kw_entry.get("sources", [])
             priority = kw_entry["priority"]
             try:
-                # Amazon search with keyword
+                # Amazon search with keyword (CloakBrowser first, fallback to curl)
                 search_url = f"https://www.amazon.co.uk/s?k={keyword.replace(' ', '+')}&rh=p_36%3A559-1000"
-                html = _curl_fetch(search_url)
+                html = None
+                try:
+                    from sources.browser_fetch import fetch_url
+                    html = fetch_url(search_url, wait_for="[data-asin]")
+                except ImportError:
+                    pass
+                if not html:
+                    html = _curl_fetch(search_url)
                 if html and len(html) > 5000:
                     results = _parse_amazon_page(html, "keyword", "search")
                 else:
