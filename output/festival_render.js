@@ -372,6 +372,43 @@ var FP_Render = {
     });
     html += '</table></div>';
 
+    // V3: Linked Radar Products
+    html += '<div style="margin-bottom:12px;padding:10px;background:#f0fdf4;border-radius:8px;border:1px solid #bbf7d0">';
+    html += '<div style="font-weight:600;color:var(--green);margin-bottom:6px;font-size:12px">🔗 关联雷达产品</div>';
+    var linkedProducts = [];
+    var festivalKeywords = [];
+    f.products.forEach(function(p) {
+      if (p.keywords) p.keywords.forEach(function(k) { festivalKeywords.push(k.toLowerCase()); });
+      if (p.skuEn) festivalKeywords.push(p.skuEn.toLowerCase().split(' ').slice(0,3).join(' '));
+    });
+    if (typeof RADAR_ALL !== 'undefined') {
+      Object.keys(RADAR_ALL).forEach(function(date) {
+        (RADAR_ALL[date].products || []).forEach(function(rp) {
+          var rpName = (rp.name || '').toLowerCase();
+          var matched = festivalKeywords.some(function(kw) { return kw.length > 4 && rpName.indexOf(kw) !== -1; });
+          if (matched && !linkedProducts.some(function(lp) { return lp.asin === rp.asin; })) {
+            linkedProducts.push(rp);
+          }
+        });
+      });
+    }
+    if (linkedProducts.length > 0) {
+      linkedProducts.slice(0,5).forEach(function(rp) {
+        var st = (typeof getSt === 'function' ? getSt()[rp.asin] : null) || 'pending';
+        var stLabel = (typeof STATUS !== 'undefined' && STATUS[st]) ? STATUS[st][0] : st;
+        html += '<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #e5e7eb;font-size:12px">';
+        html += '<span style="font-weight:600;color:var(--blue);min-width:45px">' + (rp.score||0) + '分</span>';
+        html += '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + FP_Utils.escape(rp.name||'').substring(0,60) + '</span>';
+        html += '<span style="font-size:11px;color:var(--muted)">£' + (rp.price||0) + '</span>';
+        html += '<span style="padding:2px 6px;border-radius:4px;font-size:10px;background:#007AFF15;color:#007AFF">' + stLabel + '</span>';
+        html += '</div>';
+      });
+      if (linkedProducts.length > 5) html += '<div style="font-size:11px;color:var(--muted);padding-top:4px">+' + (linkedProducts.length-5) + ' 个更多...</div>';
+    } else {
+      html += '<div style="font-size:12px;color:var(--muted)">暂无关联产品（雷达扫描后自动匹配）</div>';
+    }
+    html += '</div>';
+
     // Notes
     html += '<textarea style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:12px;min-height:50px;resize:vertical;font-family:inherit;margin-bottom:10px" placeholder="备注..." oninput="FP_Interact.setNotes(\'' + f.id + '\',this.value)">' + FP_Utils.escape(festState.notes) + '</textarea>';
 
